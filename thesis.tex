@@ -1,0 +1,48 @@
+% Author	Rajath Shashidhara
+% Email		rajath.shashidhara@gmail.com
+%
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+\documentclass[12pt,a4paper,twoside,openany]{report}
+
+\usepackage[width=160mm,top=25mm,bottom=25mm,bindingoffset=6mm,headheight=15pt]{geometry}
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage[toc,page]{appendix}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{blindtext}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage{braket}
+
+\usepackage[backend=biber,style=phys]{biblatex}
+\addbibresource{./bibliography/ref.bib}
+
+\fancyhead[RE,LO]{\fontsize{7}{9} \selectfont\leftmark}
+\fancyhead[RO,LE]{\fontsize{8}{10} \selectfont\rightmark}
+\fancyfoot[CO,CE]{\thepage}
+\hypersetup{
+  colorlinks=true
+}
+
+\graphicspath{{./images/}}
+\pagestyle{fancy}
+
+\begin{document}
+  \include{frontmatter}  
+  \include{chapters/chapter1}
+  \begin{appendices}
+    \include{appendices/bw}
+  \end{appendices}  
+  \printbibliography
+\end{document}
