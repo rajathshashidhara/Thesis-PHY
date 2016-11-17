@@ -8,6 +8,7 @@
 
 \usepackage[width=160mm,top=25mm,bottom=25mm,bindingoffset=6mm,headheight=15pt]{geometry}
 \usepackage{cmbright}
+% \usepackage[bitstream-charter]{mathdesign}
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr}
 \usepackage[toc,page]{appendix}
@@ -19,14 +20,18 @@
 \usepackage{csquotes}
 \usepackage{blindtext}
 
+\usepackage{bigints}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{bm}
 
 \usepackage{braket}
 
 \usepackage[backend=biber,style=phys]{biblatex}
 \addbibresource{./bibliography/ref.bib}
+
+% \linespread{1.1}
 
 \fancyhead[RE,LO]{\fontsize{7}{9} \selectfont\leftmark}
 \fancyhead[RO,LE]{\fontsize{8}{10} \selectfont\rightmark}
@@ -39,8 +44,10 @@
 \pagestyle{fancy}
 
 \begin{document}
-  \include{frontmatter}  
+  \include{frontmatter}
   \include{chapters/chapter1}
+  \part{Background}
+  \include{chapters/chapter2}
   \begin{appendices}
     \include{appendices/bw}
   \end{appendices}  

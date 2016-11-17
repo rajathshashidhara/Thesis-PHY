@@ -1,0 +1,90 @@
+% Author	Rajath Shashidhara
+% Email		rajath.shashidhara@gmail.com
+%
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+\chapter{Geometric Phase}
+Physical measurements or observations are extracted from quantum mechanical systems in the form of expectation values of hermitian operators $\braket{\psi|\hat{A}|\psi}$.
+Eigenvectors of the hamiltonian are only specified up to a phase factor. Expectation values and thereby, the physical observations are unaltered by a transformation of the form 
+$\psi \rightarrow e^{i \phi} \psi$. This guage choice can be eliminated by formulating quantum mechanics in terms of guage invariant representations such as density 
+matrices $\psi\psi^{\dagger}$. Expectation value of an operator $\hat{A}$ is recast as $\braket{\hat{A}} = tr(\psi\psi^{\dagger}\hat{A})$.
+
+\section{Definition}
+Prof. M V Berry studied the adiabatic evolution of a quantum system described by the hamiltonian $\hat{H}(\mathbf{R})$, parameterized by external factors $\mathbf{R}$ -- such as
+magnetic field, electric field, etc \cite{berry1984quantal}. The hamiltonian is varied by slowly changing $\mathbf{R}$ from time $t=0$ to $t=T$ such that $\mathbf{R}(0)=\mathbf{R}(T)$. This evolution is
+a closed loop in the parameter space. Apart from the adiabatic assumption, we also assume that the energy spectrum is discrete and there are no level crossings or degeneracies in the 
+energy spectrum. Using the guage freedom, we enforce single-valuedness on the eigenvectors of the hamiltonian in the parameter space. 
+Under the assumptions stated above, eigenvectors of the hamiltonian can be uniquely identified as $\ket{n(\mathbf{R})}$ at each point in parameter space without any ambiguity.
+The schrodinger equation is stated in this notation as 
+\begin{gather}
+ \hat{H}(\mathbf{R}(t))\ket{n(\mathbf{R}(t))} = E(\mathbf{R}(t))\ket{n(\mathbf{R}(t))} \\
+ \label{chap_2:timedepschroeq} i\hbar\frac{\partial}{\partial t}\ket{\psi(t)} = \hat{H}(t)\ket{\psi(t)}
+\end{gather} In the case of static time-independent hamiltonian, any state expanded as a linear combination of stationary states is written as
+$\ket{\psi(t)} = \sum{c_n e^{-\frac{i E_{n}(t)}{\hbar}} \ket{n}}$. Taking cue from this, the expansion ansatz
+\begin{equation}
+\ket{\psi(t)} = \sum{c_{n}(t) e^{-\frac{i}{\hbar}\int_{0}^{t}{E_{n}(t) dt}} \ket{n(t)}}
+\end{equation} is a valid generalization for a system with a time-dependent hamiltonian. When the ansatz is substituted into Eq. \eqref{chap_2:timedepschroeq}, we obtain
+\begin{equation}
+  \label{chap_2:coeffslinercomb}\dot{c}_{m}(t) = -c_{m}(t) \Braket{m(t) | \frac{\partial}{\partial t} m(t)} - \sum_{n}{c_{n}(t) e^{i (\theta_n - \theta_m)} \frac{\braket{m(t)|\widehat{\dot{H}}|n(t)}}{E_n - E_m}}
+\end{equation} where $\theta_n = \frac{-1}{\hbar}\int_{0}^{t}{E_n(t')\,dt'}$. In the adiabatic limit, the transition probability between states tends to zero.
+We ignore the second term in the general solution above to obtain the result
+\begin{equation}
+ c_{n}(t) = e^{i \gamma_{n}(t)}\,c_{n}(0)
+\end{equation} If we started in an eigenstate of the hamiltonian $\ket{\psi(0)} = \ket{n(\mathbf{R}(0)}$, then the state evolves as
+\begin{equation}
+ \ket{\psi(t)} = e^{i \gamma_{n}(t)} e^{i \theta_{n}(\mathbf{R}(t))} \ket{n(\mathbf{R}(t))}
+\end{equation} remaining in the $n$th eigenstate all along, only picking up phase factors. In the case of cyclic evolution, we write
+\begin{equation}
+ \ket{\psi(T)} = e^{i \gamma_{n}(C)} e^{i \theta_{n}(T)} \ket{\psi(0)}
+\end{equation}
+From Eq. \eqref{chap_2:coeffslinercomb}, we note that
+\begin{equation}
+  \gamma_{n}(C) = i\,\int_{0}^{T}{\braket{n(t) | \frac{\partial}{\partial t} n(t)}\, dt} = i\, \oint_{c}{\braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})} \cdot \, d\mathbf{R}}
+\end{equation} $\gamma_{n}(C)$ is a real number and therefore $e^{i \gamma_{n}(C)}$ is a pure phase term. This simple fact can be demonstrated by taking the time-derivative 
+of $\braket{n(t)|n(t)} = 1$.
+\begin{gather*}
+ \braket{n(t)|n(t)} = 1 \\
+ \left[\frac{\partial}{\partial t}\bra{n(t)}\right]\ket{n(t)} + \bra{n(t)}\left[ \frac{\partial}{\partial t}\ket{n(t)}\right] = 0 \\
+ \bra{n(t)}\left[\frac{\partial}{\partial t}\ket{n(t)}\right] = -\left(\bra{n(t)}\left[\frac{\partial}{\partial t}\ket{n(t)}\right]\right)^{*}
+\end{gather*}
+$\theta_{n}(T)$ is the familiar dynamical phase and $\gamma_{n}(C)$ is known as geometric phase or simply berry phase. While the dynamical phase is a time-dependent quantity,
+the geometric phase is a line integral, that only depends on path traversed in the parameter space. Another important observation is the fact that $\gamma_{n}$ is a 
+non-integrable quantity as it is not single valued - $\gamma_{n}(0) \neq \gamma_{n}(T)$ in the parameter space. Therefore, the geometric phase cannot be expressed as a field over
+the parameter space. By application of stokes theorem, the line integral can be convereted into a surface integral as shown below
+\begin{align}
+ \gamma_{n}(C) &= i \oint_{C}{\braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})} \cdot \, d\mathbf{R}} \nonumber \\
+ &= i \int_{S}{\bm{\nabla_{R}} \wedge \braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})} \cdot \, d\mathbf{S}} \\
+ &= i \int_{S}{(\bm{\nabla_{R}}\bra{n(\mathbf{R})}) \wedge \bm{\nabla_{R}}\ket{n(\mathbf{R})} \cdot \, d\mathbf{S}} \nonumber \\
+ \label{chap_2:gaugeindep} &= i \bigintsss_{S}{\,\sum_{m \neq n}{\frac{\braket{n(\mathbf{R})|\bm{\nabla_{R}}\hat{H}(\mathbf{R})|m(\mathbf{R})} \wedge \braket{m(\mathbf{R})|\bm{\nabla_{R}}\hat{H}(\mathbf{R})|n(\mathbf{R})}}{(E_{n}(\mathbf{R})- E_{m}(\mathbf{R}))^2}} \cdot \, d\mathbf{S}}
+\end{align}
+Eq. \eqref{chap_2:gaugeindep} has a remarkable property of being gauge independent. Any transformation of the form 
+$\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, leaves Eq. \eqref{chap_2:gaugeindep} unchanged. 
+
+\subsection{Anology to electromagnetism}
+Before we proceed, it is useful to define two important quantities called the berry connection and the berry curvature. \emph{Berry connection} is defined as
+\begin{equation}
+ \mathbf{A}_{n}(\mathbf{R}) = i\braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})}
+\end{equation}
+and the \emph{Berry curvature} is given by
+\begin{equation}
+ \mathbf{B}_{n}(\mathbf{R}) = i \;\bm{\nabla_{R}} \wedge \braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})} = \bm{\nabla_{R}} \wedge \mathbf{A}_{n}(\mathbf{R})
+\end{equation} Berry phase is conveniently expressed in terms of these quantities as
+\begin{equation}
+ \gamma_{n}(C)= \oint_{C}{\mathbf{A}_{n}(\mathbf{R})\cdot \, d\mathbf{R}} = \int_{S}{\mathbf{B}_{n}(\mathbf{R})\cdot \, d\mathbf{S}}
+\end{equation}
+If we transform the states as $\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, then the berry connection transforms as
+$\mathbf{A}_{n}(\mathbf{R}) \rightarrow \mathbf{A}_{n}(\mathbf{R}) - \bm{\nabla_{R}} \delta(\mathbf{R})$, but the berry curvature remains unchanged. This shows an uncanny
+resemblence between magnetic vector potential and the berry connection and consequently the magnetic field strength and the berry curvature. However, it must be kept in mind that
+the berry connection and the berry curvature are defined over the parameter space (could be more than 4-dimensional) and not the real space.
+
+Geometric phase was overlooked as physically irrelevant as the expectation values are independent of the phase of eigenfunctions. 
+As opposed to the then prevalant notion, Prof. Berry, in his seminal paper, demonstrated that the geometric phase is in fact, physically observable \cite{berry1984quantal,wilczek1989geometric}.
+Several assumptions imposed by Prof. Berry in defining the geometric phase can be relaxed and definition of geometric phase has been generalized to nonadiabatic, noncyclic, 
+nonunitary and nonabelian situations \cite{aharonov1987phase, samuel1988general, wilczek1984appearance, mukunda1993quantum}.
+\section{Bargmann invariants}
+% An important result of the adiabatic theorem is, if the system is prepared in a state $\ket{\psi(0)} = \ket{n(\mathbf{R}(0))}$, then at time $t=T$, $\ket{\psi(T)}$ is just a phase 
+% factor times $\ket{\psi(0)}$.
+% \begin{equation}
+%  \ket{\psi(t)} = e^{i\phi_{total}(t)}
+% \end{equation}
