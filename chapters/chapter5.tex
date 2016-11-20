@@ -1,0 +1,307 @@
+% Author	Rajath Shashidhara
+% Email		rajath.shashidhara@gmail.com
+%
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+\chapter{Floquet theory}
+Although Rayleigh-Schrodinger perturbation theory can be extended to time-dependent situations, it is not well suited for periodic systems as it relies on power-series
+expansions. Approximate solutions obtained from RS theory may not retain the periodic character - necessitated by physical conditions - at all perturbation orders \cite{hanggi1998driven}.
+A relatively new class of techniques based on the application of floquet theory have been developed to alleviate this problem. This approach effectively converts a time-dependent
+problem into a time-independent problem, which is much easier to tackle both analytically and numerically.
+\section{Statement}
+The time-dependent Schrodinger equation is
+\begin{equation}
+  \label{chap_5:timeschroeqn}i\hbar\frac{\partial}{\partial t}\ket{\psi (t)} = \hat{H}\ket{\psi (t)}
+\end{equation}We are interested in periodically driven systems, i.e., the hamiltonian satisfies
+\begin{equation}
+  \hat{H}(t+T) = \hat{H}(t) \quad \forall t
+\end{equation} where $T = \frac{2\pi}{\omega}$ is the time period of the driving. Floquet theory establishes the general form of the solution 
+to such periodic linear differential equations.
+\newline
+\begin{theorem}[Floquet Theorem] A periodic linear differential equation 
+  \begin{equation*}
+  \frac{\partial\vec{x}}{\partial t} = \mathbf{A}(t) \vec{x} \qquad \forall t \; \mathbf{A}(t+T) = \mathbf{A}(t)
+  \end{equation*} has solutions of the form 
+  \begin{equation*}
+    \vec{x} = \mathit{e}^{-i \mu t} \vec{p}(t) \quad \ni \quad \vec{p}(t+T) = \vec{p}(t)
+  \end{equation*}
+\end{theorem}
+Using floquet theory, solutions to Eq. \eqref{chap_5:timeschroeqn} have the form
+\begin{equation}
+ \label{chap_5:floquetstate}\ket{\psi_{\alpha}(t)} = \mathit{e}^{-i \epsilon_{\alpha} t} \ket{\phi_{\alpha}(t)}
+\end{equation} $\ket{\phi_{\alpha}(t)}$ are periodic in time and they are called the \emph{floquet modes}. $\epsilon_{\alpha}$ are real parameters known as \emph{quasienergies}, 
+and they are analogous to quasimomentum $k$ in bloch theory. 
+
+\begin{align*}
+  \ket{\psi_{\alpha}(t+T)} &= \mathit{e}^{-i \epsilon_{\alpha} (t+T)} \ket{\phi_{\alpha}(t+T)} \\
+  &= \mathit{e}^{-i \epsilon_{\alpha} T} \mathit{e}^{-i \epsilon_{\alpha} t} \ket{\phi_{\alpha}(t)} \\  
+  &= \mathit{e}^{-i \epsilon_{\alpha} T} \ket{\psi_{\alpha}(t)}
+\end{align*}
+Three interesting properties can be inferred from the above snippet
+\begin{enumerate}
+ \item $\epsilon_n$ is real. This is due to the fact that $\ket{\psi_{\alpha}(t)}$ is normalized to $1$ at all times.
+ \item If $\hat{U}(t_2, t_1)$ is the time evolution operator, then 
+ \begin{equation}
+  \label{chap_5:stateseigstrobo}\hat{U}(t + T, t)\ket{\psi_{\alpha}(t)} = \mathit{e}^{-i \epsilon_{\alpha} T} \ket{\psi_{\alpha}(t)}
+ \end{equation} Therefore, $\ket{\psi_{\alpha}(t)}$, also known as the \emph{floquet states}, are the eigenvectors of the time evolution operator over one period. 
+ This also means that at any fixed time $t$, the floquet states form a complete orthonormal basis.
+ \item $\epsilon_\alpha$ may be replaced by $\epsilon_\alpha + n\omega$ without affecting the above equations. We define $\epsilon_{\alpha n} = \epsilon_\alpha + n\omega$ and 
+ restrict $\epsilon_\alpha \in \left[\frac{-\omega}{2}, \frac{\omega}{2}\right)$, called the \emph{Brillouin zone}.
+\end{enumerate}
+
+The time evolution operator can be further simplified using the complete and orthonormal set of floquet states
+\begin{align}
+  \hat{U}(t_2, t_1) &= \sum_{\alpha_2}{\ket{\psi_{\alpha_2}(t_2)}\bra{\psi_{\alpha_2}(t_2)}}\hat{U}(t_2, t_1)\sum_{\alpha_1}{\ket{\psi_{\alpha_1}(t_1)}\bra{\psi_{\alpha_1}(t_1)}} \nonumber \\
+  &= \sum_{\alpha_1, \alpha_2}{\ket{\psi_{\alpha_2}(t_2)}\braket{\psi_{\alpha_2}(t_2)|\psi_{\alpha_1}(t_2)}\bra{\psi_{\alpha_1}(t_1)}} \nonumber \\
+  \label{chap_5:timeevol} &= \sum_{\alpha}{e^{-i\epsilon_\alpha (t_2 - t_1)} \ket{\phi_\alpha (t_2)}\bra{\phi_\alpha (t_1)}}
+\end{align} This is a remarkable result as we can express any state $\ket{\psi(t)}$ as
+\begin{equation}
+  \ket{\psi(t)} = \sum_{\alpha}{\braket{\phi_\alpha (t_0) | \psi(t_0)} e^{-i\epsilon_\alpha (t - t_0)} \ket{\phi_\alpha (t)}} 
+\end{equation} i.e., the contribution of each floquet state remains constant through as the state evolves in time.
+
+\section{Floquet Hamiltonian}
+The time evolution over one period is given by the \emph{stroboscopic operator} $\hat{U}(t_0 + T, t_0)$. We know from elementary linear algebra that any unitary operator can
+be expressed in terms of exponential of a hermitian operator. The generator of stroboscopic evolution, identified by the relation
+\begin{equation}
+ \exp\left(-iT\hat{H}_{t_0}^{F}\right) = \hat{U}(t_0 + T, t_0)
+\end{equation} is known as the \emph{Floquet Hamiltonian}. The floquet hamiltonian is time-independent, but parameterized by the initial time $t_0$.
+It is then obvious from Eq. \eqref{chap_5:stateseigstrobo} that,
+\begin{equation*}
+ \hat{H}_{t_0}^{F} = \sum_{\alpha}{\epsilon_\alpha \ket{\phi_\alpha (t_0)}\bra{\phi_\alpha (t_0)}}
+\end{equation*} and subsequently 
+\begin{equation}
+ \hat{H}_{t_0}^{F}\ket{\phi_\alpha (t_0)} = \epsilon_\alpha \ket{\phi_\alpha (t_0)}
+\end{equation} This eigenvalue equation proves the corollary of floquet theory stating that there exists a one-to-one mapping between the quasienergies and the floquet modes. 
+This fact has been inherently assumed in our analysis up to this point, as the quasienergies and floquet modes were indexed by the same variable.
+
+We can obtain an alternate definition of floquet hamiltonian also known as the \emph{Quasienergy operator} by substitution of Eq. \eqref{chap_5:floquetstate} in 
+Eq. \eqref{chap_5:timeschroeqn},
+\begin{equation}
+  \left[\hat{H} - i\frac{\partial}{\partial t}\right]\ket{\phi_\alpha} = \epsilon_\alpha\ket{\phi_\alpha}
+\end{equation} Therefore, we identify $\hat{H}_{t}^{F}$ as 
+\begin{equation}
+ \hat{H}_{t}^{F} = \left[\hat{H}(t) - i\frac{\partial}{\partial t}\right]
+\end{equation}
+
+
+
+We also introduce the \emph{micromotion operator} 
+\begin{gather}
+  \ket{\phi_\alpha (t_2)} = \hat{U}_{F}(t_2, t_1)\ket{\phi_\alpha (t_1)}\\
+  \hat{U}_{F}(t_2, t_1) = \sum_{\alpha}{\ket{\phi_\alpha (t_2)}\bra{\phi_\alpha (t_1)}}
+\end{gather} which describes the time evolution of periodic floquet modes.
+
+Further, the time evolution operator from Eq. \eqref{chap_5:timeevol} can be written in terms of the floquet hamiltonian and the micromotion operator.
+\begin{equation}
+ \hat{U}(t_2, t_1) = e^{-i(t_2 - t_1)\hat{H}_{t_2}^{F}}\hat{U}_{F}(t_2, t_1) = \hat{U}_{F}(t_2, t_1)e^{-i(t_2 - t_1)\hat{H}_{t_1}^{F}} = e^{i\hat{K}(t_2, t_1)}e^{-i(t_1 - t_2)\hat{H}_{t_1}^{F}}
+\end{equation} In the final expression, the micromotion operator (unitary operator) is expressed in terms of an exponential.
+
+By diagonalizing the floquet hamiltonian, both quasienergies and the floquet modes can be determined. Floquet hamiltonian is amenable to analysis as it is time independent
+as opposed to the original time dependent hamiltonian. Unfortunately, our discussion to this point, does not provide a procedure to calculate the floquet hamiltonian without
+knowing the quasienergies and the floquet modes! A myriad of approximation schemes have been devised to obtain the floquet hamiltonian for high-frequency driving 
+\parencite{casas2001floquet,goldman2014periodically,anisimovas2015high,mikami2016brillouin,grozdanov1988quantum}. We shall only briefly discuss two such methods in the forthcoming sections.
+
+\section{Effective Hamiltonian}
+We have already noted that the floquet hamiltonian is parameterized by initial time. However, this idea of initial time is absurd in many situations.
+Instead, a static hamiltonian without reference to any initial time parameter may be defined without losing the physical interpretation of macromotion associated with the 
+floquet hamiltonian \parencite{rahav2003effective, goldman2014periodically, anisimovas2015high}.
+
+To achieve this, we have to conceive of a unitary transformation $\hat{U}_{F}(t)$, such that 
+\begin{equation}
+ \label{chap_5:unitarytrans}\hat{H}_{F} = \hat{U}_{F}(t)\hat{H}_{t}^{F}\hat{U}_{F}^{\dagger}(t) = \hat{U}_{F}(t)\hat{H}(t)\hat{U}_{F}^{\dagger}(t) - i\hat{U}_{F}(t)\frac{\partial}{\partial t}\hat{U}_{F}^{\dagger}(t)
+\end{equation} is time independent \cite{rahav2003effective, anisimovas2015high}. $\hat{H}_{F}$ is known as the effective hamiltonian. Under this unitary transformation, quite obviously the floquet modes would transform to
+\begin{equation}
+ \ket{\phi_\alpha^{F}} = \hat{U}_{F}(t)\ket{\phi_\alpha (t)}
+\end{equation} $\ket{\phi_\alpha^{F}}$s are time independent as they are the eigenfunctions of static $\hat{H}_{F}$.
+The micromotion operator written in terms of the unitary transformation is
+\begin{align}
+ \hat{U}_{F}(t_2, t_1) &= \sum_{\alpha}{\ket{\phi_\alpha (t_2)}\bra{\phi_\alpha (t_1)}} \nonumber \\
+ &= \sum_{\alpha}{\hat{U}_{F}^{\dagger}(t_2)\ket{\phi_\alpha^{F}}\bra{\phi_\alpha^{F}}\hat{U}_{F}(t_1)} \nonumber \\
+ &= \hat{U}_{F}^{\dagger}(t_2)\left(\sum_{\alpha}{\ket{\phi_\alpha^{F}}\bra{\phi_\alpha^{F}}}\right)\hat{U}_{F}(t_1) \nonumber \\
+ &= \hat{U}_{F}^{\dagger}(t_2)\hat{U}_{F}(t_1)
+\end{align}
+
+In the time-independent gauge, time evolution is simply $e^{-i\hat{H}_{F}(t_2 - t_1)}$. To propagate any state in the time-independent gauge, it has to be transformed to 
+time-independent gauge first. The propagated state must then be transformed back to the time-dependent gauge. This means that the time-evolution operator is
+\begin{equation}
+  \hat{U}(t_2, t_1) = \hat{U}_{F}^{\dagger}(t_2)e^{-i\hat{H}_{F}(t_2 - t_1)}\hat{U}_{F}(t_1)
+\end{equation} 
+
+Further, we enforce a periodicity constraint $\hat{U}_{F}(t) = \hat{U}_{F}(t+T)$. It is conventional to represent the operator $\hat{U}_{F}(t)$ as $e^{i\hat{K}(t)}$ and call $\hat{K}(t)$ as the kick operator.
+To obtain the expressions for $\hat{H}_{F}$ and $\hat{H}_{F}$, we expand them perturbatively under the high-frequency limit.
+\begin{gather}
+ \hat{H}(t) = \hat{H}_{(0)} + \sum_{j=1}^{\infty}{\hat{H}_{(j)} e^{ij\omega t} + \hat{H}_{(-j)} e^{-ij\omega t}} \\
+ \hat{H}_{F}(t) = \sum_{j=0}^{\infty}{\frac{1}{\omega^j}\hat{H}_{F}^{(j)}} \\
+ \hat{K}(t) = \sum_{j=0}^{\infty}{\frac{1}{\omega^j}\hat{K}^{(j)}}
+\end{gather}
+With this ansatz, on equating terms of the same order on both sides of Eq. \eqref{chap_5:unitarytrans}, the effective hamiltonian is determined up to a suitable order of 
+$\frac{1}{\omega^n}$ \cite{goldman2014periodically}.
+
+\section{Brillouin-Wigner perturbative expansion of Floquet Hamiltonian}
+We shall exploit the periodicity of the problem and conveniently write the Schrodinger equation in terms of fourier components. Let $\{\ket{\alpha},\dots\}$ be a complete 
+orthonormal set of basis states. The components of the hamiltonian are written in this basis as $H_{\alpha\beta}=\braket{\alpha|\hat{H}|\beta}$. From results discussed in
+previous sections, we know that the time-dependent Schrodinger equation has $n=rank(\hat{H})$ linearly independent solutions - one corresponding to each of the quasienergies 
+in the Brillouin zone. We define the fundamental matrix of Schrodinger equation as a matrix constructed by concatenating $n$ eigenvectors as the columns of a $n \times n$ matrix.
+\begin{equation*}
+ \bm{\Psi}(t) = \Bigg[ \bigg[\ket{\psi_1}\bigg] \bigg[\ket{\psi_2}\bigg]\dots\bigg[\ket{\psi_n}\bigg] \Bigg]
+\end{equation*}
+The result of Floquet theory can be expressed in this notation as
+\begin{gather}
+ \bm{\Psi}(t) = \bm{\Phi}(t) e^{-i\bm{\epsilon} t} \\
+ i\frac{\partial}{\partial t} \bm{\Psi}(t) = \mathbf{H}(t)\bm{\Psi}(t) \\
+ \Psi_{\alpha\beta}(t) = \braket{\alpha|\psi_{\beta}(t)} \\
+ \epsilon_{\alpha\beta} = \epsilon_\alpha \delta_{\alpha\beta} \\
+ \Phi_{\alpha\beta}(t) = \braket{\alpha|\phi_{\beta}(t)}
+\end{gather}
+where $\bm{\epsilon}$ is a constant real diagonal matrix and $\bm{\Phi}(t+T)=\bm{\Phi}(t)$.
+
+Expanding $\mathbf{H}(t)$ and $\bm{\Phi}(t)$ in fourier series
+\begin{gather}
+ \mathbf{H}(t) = \sum_{n}{\tilde{\mathbf{H}}_{n} e^{in\omega t}} \\
+ \tilde{\mathbf{H}}_{n} = \frac{1}{T}\int_{0}^{T}{\mathbf{H}(t)e^{-in\omega t} dt} \\
+ H_{\alpha\beta}(t) = \sum_{n}{\tilde{H}_{n,\alpha\beta} e^{in\omega t}} \\
+ \bm{\Phi}(t) = \sum_{n}{\tilde{\bm{\Phi}}_{n} e^{in\omega t}} \\ 
+ \tilde{\bm{\Phi}}_{n} = \frac{1}{T}\int_{0}^{T}{\bm{\Phi}(t)e^{-in\omega t} dt} \\
+ \Phi_{\alpha\beta}(t) = \sum_{n}{\tilde{\Phi}_{n,\alpha\beta} e^{in\omega t}}
+\end{gather}
+Subsequently,
+\begin{align}
+ \Psi_{\alpha\beta}(t) &= \sum_{\gamma}{\left(\sum_{n}{\tilde{\Phi}_{n,\alpha\gamma} e^{in\omega t}}\right)\delta_{\gamma\beta}e^{-i\epsilon_\beta t}} \nonumber \\
+ &= \sum_{n}{\tilde{\Phi}_{n,\alpha\beta}e^{in\omega t}e^{-i\epsilon_\beta t}}
+\end{align}
+Inserting these expansions into the Schrodinger equation
+\begin{align*}
+ i\frac{\partial}{\partial t}\Psi_{\alpha\beta}(t) &= i\frac{\partial}{\partial t}\left(\sum_{n}{\tilde{\Phi}_{n,\alpha\beta}e^{in\omega t}e^{-i\epsilon_\beta t}}\right) \\
+ &= i\sum_{n}{\tilde{\Phi}_{n,\alpha\beta}e^{in\omega t}e^{-i\epsilon_\beta t} (in\omega - i\epsilon_\beta)} \\
+ &= \sum_{n}{\tilde{\Phi}_{n,\alpha\beta}e^{in\omega t}e^{-i\epsilon_\beta t} (\epsilon_\beta-n\omega)} \\ 
+ (H\Phi)_{\alpha\beta}(t) &= \sum_{\gamma}{\left(\sum_{r}{\tilde{H}_{r,\alpha\gamma} e^{ir\omega t}}\sum_{s}{\tilde{\Phi}_{s,\gamma\beta} e^{is\omega t}e^{-i\epsilon_\beta t}}\right)} \\
+ &= \sum_{\gamma}{\sum_{r}{\sum_{s}{\tilde{H}_{r,\alpha\gamma}\tilde{\Phi}_{s,\gamma\beta}e^{i(r+s)\omega t}e^{-i\epsilon_\beta t}}}}\\
+ \text{making change of variable } n = r+s \\
+ &= \sum_{\gamma}{\sum_{n}{\sum_{s}{\tilde{H}_{n-s,\alpha\gamma}\tilde{\Phi}_{s,\gamma\beta}e^{in\omega t}e^{-i\epsilon_\beta t}}}} \\
+ &= \sum_{n}{\left(\sum_{\gamma}{\sum_{s}{\tilde{H}_{n-s,\alpha\gamma}\tilde{\Phi}_{s,\gamma\beta}}}\right)e^{in\omega t}e^{-i\epsilon_\beta t}}
+\end{align*}
+Rearranging terms
+\begin{equation*}
+\sum_{n}\sum_{\gamma}\sum_{s}{[\tilde{H}_{n-s,\alpha\gamma} + n\omega\delta_{\alpha\gamma}\delta_{ns}]\tilde{\Phi}_{s,\gamma\beta}e^{in\omega t}e^{-i\epsilon_\beta t}}
+ = \sum_{n}{\epsilon_\beta \tilde{\Phi}_{n,\alpha\beta}e^{-i\epsilon_\beta t}}
+\end{equation*}
+Matching coefficients of the $e^{in\omega t}$, we obtain
+\begin{equation}
+ \sum_{\gamma, s}{[\tilde{H}_{n-s,\alpha\gamma} + n\omega\delta_{\alpha\gamma}\delta_{ns}]\tilde{\Phi}_{s,\gamma\beta}} = \epsilon_\beta \tilde{\Phi}_{n,\alpha\beta}
+\end{equation}
+The above equation is an eigenvalue written the \emph{Sambe space} \cite{sambe1973steady, anisimovas2015high, shirley1965solution}, in a basis constituting states from the direct product of hilbert space $\mathcal{H}$ and 
+the $\mathcal{L}_{T}$ space of square integrable periodic functions with time period $T$. 
+The fourier basis forms a complete and orthonormal set of basis states for $\mathcal{L}_{T}$. We identify the basis states as $\ket{\alpha n(t)} = \ket{\alpha}e^{in\omega t}$.
+Two indices or a 2-tuple $(\alpha, n)$ are/is required to identify the basis states uniquely. In this notation, we represent
+\begin{equation}
+ \tilde{H}^{F}_{(\alpha,n), (\gamma, s)} = \tilde{H}_{n-s,\alpha\gamma} + n\omega\delta_{\alpha\gamma}\delta_{ns}
+\end{equation}
+Then, the eigenvalue equation for above is written as
+\begin{equation}
+ \sum_{(\gamma, s)}{\tilde{H}^{F}_{(\alpha,n), (\gamma, s)}\tilde{\Phi}_{(\gamma,s), \beta}} = \epsilon_\beta\tilde{\Phi}_{(\alpha,n), \beta}
+\end{equation} Note that, $\tilde{\Phi}_{\beta}$ is an eigenvector associated with eigenvalue $\epsilon_\beta$.
+It is not too surprising to see that $\tilde{H}^{F}$ is actually the floquet hamiltonian written in terms of fourier components. One major difference is that, it is
+now infinite dimensional, and it allows for all quasienergies extending beyond the brillouin zone \cite{shirley1965solution, anisimovas2015high}. Another straight forward
+observation is, if $\tilde{\Phi}_{(\alpha,n), \beta}$ are the components of the eigenvector corresponding to $\epsilon_\beta$, then the components of the eigenvector corresponding
+to $\epsilon_\beta + m\omega$ are $\tilde{\Phi}_{(\alpha,n+m), \beta}$. This is established by the following steps
+\begin{align*}
+ \hat{H}_{F}\ket{\phi} &= \epsilon\ket{\phi} \\
+ \hat{H}_{F}e^{im\omega t}\ket{\phi} &= (\epsilon+m\omega)e^{im\omega t}\ket{\phi}
+\end{align*} 
+
+Refer to \parencite{anisimovas2015high} for techniques on how to diagonalize or block-diagonalize the floquet hamiltonian. Block diagonalizing the floquet hamiltonian is
+equivalent to calculating the effective hamiltonian, as $\tilde{\mathbf{H}}_{n-s} = \frac{1}{T}\int_{0}^{T}{\hat{H}(t) e^{-i(n-s)\omega t}}$ is non-zero only when
+$n=s$, because, $\hat{H}$ under the unitary transformation, is static in time.
+
+Next step in our discourse is to apply Brillouin-Wigner perturation theory (See Chapter \ref{ch:bw}) to diagonalize the floquet hamiltonian. This is a very recent technique developed by Mikami et al. in 
+\parencite{mikami2016brillouin}. We begin with the floquet eigenvalue equation, written in matrix form \footnote{In this analysis, the definition of $\ket{m(t)}$ is 
+inverted to $e^{-im\omega t}$ to match the notation used by the original authors \cite{mikami2016brillouin}.}
+\begin{gather}
+(\mathcal{H} - \mathcal{M}\omega)\ket{\phi_\alpha} = \epsilon_\alpha\ket{\phi_\alpha} \\
+\mathcal{H}_{mn} = \frac{1}{T}\int_{0}^{T}{\hat{H}(t)e^{i(m-n)\omega t}dt} \\
+\mathcal{M}_{mn} = m\delta_{mn}
+\end{gather}
+Partitioning is done with the choice of $\mathcal{P}_{mn} = \delta_{mn}\delta_{m0}$, which essentially maps the eigenfunctions into a space devoid of the micromotion information.
+As a result, $\mathcal{Q}_{mn} = 1 - \mathcal{P}_{mn} = \delta_{mn}(1-\delta_{m0})$, $(\mathcal{P}\mathcal{M})_{mn} = k\delta_{mk}\delta_{m0}\delta_{kn}=0$ and
+$(\mathcal{Q}\mathcal{M})_{mn} = k\delta_{mk}(1-\delta_{m0})\delta_{kn} = m\delta_{mk}\delta_{kn}(1-\delta_{k0}) = (\mathcal{M}\mathcal{Q})_{mn}$.
+The Brillouin-wigner effective hamiltonian is defined as
+\begin{equation}
+ H_{eff} = \mathcal{P}(\mathcal{H} - \mathcal{M}\omega)\Omega\mathcal{P}
+\end{equation} We determine the $\Omega$ wave operator as follows
+\begin{align}
+ \mathcal{Q}(\mathcal{H} - \mathcal{M}\omega)\ket{\phi_\alpha} &= \epsilon_\alpha\mathcal{Q}\ket{\phi_\alpha} \nonumber \\
+ \mathcal{Q}\mathcal{H}\ket{\phi_\alpha} &= \mathcal{Q}\mathcal{M}\omega\ket{\phi_\alpha} + \epsilon_\alpha\mathcal{Q}\ket{\phi_\alpha} \nonumber \\
+ \mathcal{Q}\mathcal{H}\ket{\phi_\alpha} &= \mathcal{M}\omega\mathcal{Q}\ket{\phi_\alpha} + \epsilon_\alpha\mathcal{Q}\ket{\phi_\alpha} \nonumber \\
+ (\epsilon_\alpha + \mathcal{M}\omega)\mathcal{Q}\ket{\phi_\alpha} &= \mathcal{Q}\mathcal{H}\ket{\phi_\alpha} \nonumber \\
+ \mathcal{Q}\ket{\phi_\alpha} &= \frac{\mathcal{Q}}{\epsilon_\alpha + \mathcal{M}\omega}\mathcal{H}\ket{\phi_\alpha} \\
+\end{align}
+\begin{align}
+ \ket{\phi_\alpha} &= \mathcal{P}\ket{\phi_\alpha} + \mathcal{Q}\ket{\phi_\alpha} \nonumber \\
+ &= \mathcal{P}\ket{\phi_\alpha} + \frac{\mathcal{Q}}{\epsilon_\alpha + \mathcal{M}\omega}\mathcal{H}\ket{\phi_\alpha} \nonumber \\
+ \mathcal{P}\ket{\phi_\alpha} &= \ket{\phi_\alpha} - \frac{\mathcal{Q}}{\epsilon_\alpha + \mathcal{M}\omega}\mathcal{H}\ket{\phi_\alpha}  \nonumber \\
+ \ket{\phi_\alpha} &= \left(1 - \frac{\mathcal{Q}}{\epsilon_\alpha + \mathcal{M}\omega}\mathcal{H}\right)^{-1}\mathcal{P}\ket{\phi_\alpha}
+\end{align}
+We recognize the wave operator from the above expression as
+\begin{equation}
+ \Omega(\epsilon) = \left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1}
+\end{equation} and consequently the effective hamiltonian as
+\begin{align}
+ H_{eff}(\epsilon) &= \mathcal{P}(\mathcal{H} - \mathcal{M}\omega)\left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1}\mathcal{P} \nonumber\\
+ &= \mathcal{P}\mathcal{H}\left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1}\mathcal{P} - \omega\mathcal{P}\mathcal{M}\left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1}\mathcal{P} \nonumber\\
+ &= \mathcal{P}\mathcal{H}\left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1}\mathcal{P}
+\end{align} 
+
+We look to extend this theory by defining an $\epsilon$-independent effective hamiltonian.
+\begin{align*}
+ \Omega(\epsilon) = \Omega(\epsilon)\mathcal{P} &= \left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)^{-1} \mathcal{P} \\
+ \left(1 - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\right)\Omega(\epsilon) &= \mathcal{P} \\
+ \Omega(\epsilon) - \frac{\mathcal{Q}}{\epsilon + \mathcal{M}\omega}\mathcal{H}\Omega(\epsilon) &= \mathcal{P} \\
+ (\epsilon + \mathcal{M}\omega)\Omega(\epsilon) - \mathcal{Q}\mathcal{H}\Omega(\epsilon) &= \epsilon\mathcal{P} + \mathcal{M}\omega\mathcal{P} \\
+ \Omega(\epsilon)\epsilon - \mathcal{P}\epsilon + \mathcal{M}\omega\Omega(\epsilon) - \mathcal{Q}\mathcal{H}\Omega(\epsilon) &= \mathcal{M}\omega\mathcal{P} \\
+ \Omega(\epsilon)\epsilon - \mathcal{P}\Omega(\epsilon)\epsilon + \mathcal{M}\omega\Omega(\epsilon) - \mathcal{Q}\mathcal{H}\Omega(\epsilon) &= \mathcal{M}\omega\mathcal{P} \\
+ (1-\mathcal{P})\Omega(\epsilon)\epsilon + \mathcal{M}\omega\Omega(\epsilon) - \mathcal{Q}\mathcal{H}\Omega(\epsilon) &= \mathcal{M}\omega\mathcal{P} \\
+ \mathcal{Q}\Omega(\epsilon)\epsilon + \mathcal{M}\omega\Omega(\epsilon) - \mathcal{Q}\mathcal{H}\Omega(\epsilon) &= \mathcal{M}\omega\mathcal{P} \\
+ \mathcal{M}\omega\mathcal{P} + \mathcal{Q}\mathcal{H}\Omega(\epsilon) - \mathcal{Q}\Omega(\epsilon)\epsilon &= \mathcal{M}\omega\Omega(\epsilon) \\ 
+\end{align*}
+\begin{equation}
+ \Omega(\epsilon) = \mathcal{P} + \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega(\epsilon) - \frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega(\epsilon)\epsilon
+\end{equation} We can replace the $\epsilon$ in the above equation with $H_{eff}$.
+\begin{equation*}
+ \Omega(\epsilon) = \mathcal{P} + \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega(\epsilon) - \frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega(\epsilon)\mathcal{P}\mathcal{H}\Omega(\epsilon)\mathcal{P}
+\end{equation*} We omit the $\mathcal{P}$ in the last term, as it $\Omega$ is anyway acted on $\mathcal{P}\ket{\phi_\alpha}$.
+
+$\epsilon$ independent wave operator is defined by the recursive relation
+\begin{equation}
+ \label{chap_5:omegabw}\Omega(\epsilon) = \mathcal{P} + \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega(\epsilon) - \frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega(\epsilon)\mathcal{P}\mathcal{H}\Omega(\epsilon)
+\end{equation} and the $\epsilon$ independent effective hamiltonian is obtained from the solution $\Omega_{BW}$, of the preceding equation.
+\begin{equation}
+ H_{BW} = \mathcal{P}\mathcal{H}\Omega_{BW}\mathcal{P}
+\end{equation}
+
+$\Omega_{BW}$ is obtained by substitution of the $1/\omega$ series, 
+\begin{equation*}
+ \Omega_{BW} = \sum_{N=0}^{\infty}{\Omega_{BW}^{(N)}}
+\end{equation*} where $\Omega_{BW}^{(N)}$ corresponds to order $1/\omega^N$ coefficient in the iterative solution to $\Omega_{BW}$. Similarly, the effective hamiltonian
+is also expanded in a series \begin{equation*}
+ H_{BW} = \sum_{N=0}^{\infty}{H_{BW}^{(N)}}
+\end{equation*} and $H_{BW}^{(N)} = \mathcal{P}\mathcal{H}\Omega_{BW}^{(N)}\mathcal{P}$. Expansion up to 4th order can be found in \parencite{mikami2016brillouin}.
+
+Under the limit $\omega \rightarrow \infty$, the operators tend to their $0th$ order terms, $\Omega_{BW} \rightarrow \mathcal{P}$ and $H_{BW} \rightarrow H_{0,0}$. This guarantees that the eigenvalues of 
+$H_{BW}$ is in the first brillouin zone, as the contributions from higher order terms in the series is very small to transport the eigenvalues to the next brillouin zone.
+
+The wave operator obtained from the above discussion was written in terms of the fourier components. Using fourier series, we can go back to time domain and express our 
+wavefunctions as a function of time. This operator is defined as
+\begin{equation}
+ \Xi(t) = \sum_{n\in\mathbb{Z}}{e^{-in\omega t}[\Omega_{BW}]_{n,0}}
+\end{equation}
+and
+\begin{equation}
+ \ket{\psi_{\alpha}(t)} = \Xi(t)\ket{\phi_\alpha^0}
+\end{equation}
+
+A more nuanced discussion of this theory and its connections to other approximation techniques based on the floquet theory can be found in \parencite{mikami2016brillouin}.
+% \begin{gather}
+%  \Omega_{BW}^{(0)} = \mathcal{P} \\
+%  \Omega_{BW}^{(1)} = \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\mathcal{P} \\
+% \end{gather}

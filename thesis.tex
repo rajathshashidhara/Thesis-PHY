@@ -9,7 +9,14 @@
 \usepackage[width=160mm,top=25mm,bottom=25mm,bindingoffset=6mm,headheight=15pt]{geometry}
 \usepackage{cmbright}
 % \usepackage[bitstream-charter]{mathdesign}
+% \usepackage[urw-garamond]{mathdesign}
+% \usepackage{lmodern}
+% \usepackage[rm,light]{roboto}
 \usepackage[T1]{fontenc}
+% \usepackage{gentium}
+% \usepackage[light]{merriweather}
+\usepackage{sectsty}
+\usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage[toc,page]{appendix}
 
@@ -28,13 +35,16 @@
 
 \usepackage{braket}
 
-\usepackage[backend=biber,style=phys]{biblatex}
+\usepackage[backend=biber,style=phys]{biblatex} %AIP style
+% \usepackage[backend=biber,style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}  %APS style
 \addbibresource{./bibliography/ref.bib}
 
 % \linespread{1.1}
+\sectionfont{\fontsize{13}{16}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
 
-\fancyhead[RE,LO]{\fontsize{7}{9} \selectfont\leftmark}
-\fancyhead[RO,LE]{\fontsize{8}{10} \selectfont\rightmark}
+\fancyhead[RE,LO]{\fontsize{6}{9} \selectfont\leftmark}
+\fancyhead[RO,LE]{\fontsize{7}{10} \selectfont\rightmark}
 \fancyfoot[CO,CE]{\thepage}
 \hypersetup{
   colorlinks=true
@@ -43,13 +53,18 @@
 \graphicspath{{./images/}}
 \pagestyle{fancy}
 
+\theoremstyle{definition}	\newtheorem{theorem}{Theorem}[section]
+
 \begin{document}
   \include{frontmatter}
   \include{chapters/chapter1}
   \part{Background}
-  \include{chapters/chapter2}
+  \include{chapters/chapter2}  
+  \include{chapters/chapter3}
+  \include{chapters/chapter4}
+  \include{chapters/chapter5}
   \begin{appendices}
-    \include{appendices/bw}
+%     \include{appendices/bw}
   \end{appendices}  
   \printbibliography
 \end{document}

@@ -1,0 +1,140 @@
+% Author	Rajath Shashidhara
+% Email		rajath.shashidhara@gmail.com
+%
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+\chapter{Brillouin-Wigner Perturbation Theory} \label{ch:bw}
+When encountered with an analytically intractable quantum mechanical problem, perturbation techniques 
+may be used to obtain approximate solutions. Formally, the problem can be stated as follows : 
+Given a hamiltonian $\hat{H} = \hat{H}_{0} + \hat{V}$ where $\hat{H}_{0}$ is exactly solvable and 
+$\hat{V}$ is the perturbation term, and the eigendecomposition of $\hat{H}_{0}\quad$ \textemdash 
+\begin{gather*}
+  \hat{H}_{0}\ket{n} = \epsilon_{n}\ket{n} \\
+  \braket{m|n} = \delta_{mn} \\
+  \sum_{m} {\ket{m} \bra{m}} = \mathrm{1}
+\end{gather*}
+Using Brillouin-Wigner (BW) perturbation theory, we express $\{\ket{\psi_n},\dots\}$ and $\{E_n\,,\dots\}$, such that $\hat{H}\ket{\psi_n} = E_n\ket{\psi_n}$, in terms of
+$\hat{V}$ and $\{\ket{n},\dots\}$.
+
+\section{Introduction}
+To obtain the BW perturbative expansion, we begin with the eigenvalue equation. 
+\begin{equation*}
+ \hat{H}\ket{\psi_n} = (\hat{H}_{0} + \hat{V})\ket{\psi_n} = E_n\ket{\psi_n}
+\end{equation*}
+The wavefunctions $\ket{\psi_n}$ are normalized as $\braket{n|\psi_n} = 1$, as discussed in \cite{sakurai2011modern}. On 
+contracting with $\bra{n}$,
+\begin{gather}
+ \braket{n|(\hat{H}_{0} + \hat{V})| \psi_n} = E_n\braket{n|\psi_n} \nonumber \\
+ \epsilon_n \braket{n|\psi_n} + \braket{n|\hat{V}|\psi_n} = E_n\braket{n|\psi_n} \nonumber \\
+ \label{chap_4:eneryeq} E_n = \epsilon_n + \braket{n|\hat{V}|\psi_n}
+\end{gather}
+Rewriting the eigenvalue equation as
+\begin{align*}
+ (E_n - \hat{H}_{0})\ket{\psi_n} &= \hat{V}\ket{\psi_n} \\
+ &= \mathrm{1}\; \hat{V}\ket{\psi_n} \\
+ &= \sum_{m}{\ket{m}\bra{m}}\; \hat{V}\ket{\psi_n} \\
+ &= \ket{n}\braket{n|\hat{V}|\psi_n} + (\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n} \\
+ \text{Using Eq. \ref{chap_4:eneryeq},} \\
+ &= (E_n - \hat{H}_{0})\ket{n} + (\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n} \\
+ (E_n - \hat{H}_{0}) (\ket{\psi_n} - \ket{n}) &= (\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n} \\
+ \ket{\psi_n} &= \ket{n} + (E_n - \hat{H}_{0})^{-1} (\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n}
+\end{align*}
+Define resolvent operator as $\hat{R}_{n} = (E_n - \hat{H}_{0})^{-1} = \sum_{n}{\ket{n}(E_n - \epsilon_n)^{-1} \bra{n}}$,
+\begin{equation}
+  \label{chap_4:bweqn}\ket{\psi_n} = \ket{n} +  \hat{R}_{n}(\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n}
+\end{equation}
+The above equation is the main result of BW perturbation theory. Solving Eq. \eqref{chap_4:bweqn} self-consistently with 
+Eq. \eqref{chap_4:eneryeq}, solutions to the eigenvalue equation are obtained. Using the equation, we obtain an iterative solution to the schordinger equation. 
+In each iteration, we obtain a new estimate of $\ket{\psi_n}$ by substituting the old estimate of $\ket{\psi_n}$ on the righthand side of Eq. \eqref{chap_4:bweqn}
+\begin{gather}
+  \label{chap_4:itereq} \ket{\psi_{n}^{(j)}} = \ket{n} + \; \hat{R}(E_{n})\,(\hat{\mathbb{I}} - \ket{n}\bra{n})\hat{V}\ket{\psi_{n}^{(j-1)}} \\
+  \ket{\psi_{n}^{(0)}} = \ket{n} \nonumber \\
+  \lim_{j\rightarrow \infty} \ket{\psi_{n}^{(j)}} = \ket{\psi_n} \nonumber
+\end{gather} No approximation has been used until this point, and exact solution can be obtained if iterated infinitely. 
+In practice, approximate solution is obtained by truncating the iteration.
+
+\section{BW theory as an Operator series}
+Further, Eq. \eqref{chap_4:bweqn} can be simplified by expanding the recurrence relation
+\begin{align}
+ \ket{\psi_n} &= \ket{n} + \hat{R}_{n}\hat{Q}_{n}\hat{V}\ket{\psi_n} \nonumber\\
+ \text{where } \hat{Q}_{n} = \mathrm{1} - \ket{n}\bra{n}, \nonumber\\
+ &= \ket{n} + \hat{R}_{n}\hat{Q}_{n}\hat{V}\ket{n} + \hat{R}_{n}\hat{Q}_{n}\hat{V}\hat{R}_{n}\hat{Q}_{n}\hat{V}\ket{n} + \dots \nonumber\\
+ &= \sum_{k=0}^{\infty}{\{\hat{R}_{n}\hat{Q}_{n}\hat{V}\}^k \ket{n}} \nonumber\\ 
+ &= (\mathrm{1} - \{\hat{R}_{n}\hat{Q}_{n}\hat{V}\})^{-1} \ket{n}
+\end{align}
+When higher order term contributions are diminishingly small, truncating the series produces approximate solutions 
+to the problem. However, in certain specialized problem settings, operator inverse in the above equation can be analytically obtained \cite{silvert1972comparison}.
+
+\section{Comparison with Rayleigh-Schrodinger theory}
+Rayleigh-Schrodinger (RS) perturbation theory is a more popular perturbation theory and is used widely in practice. But, RS theory is not without its shortcomings. 
+Unlike the RS theory, BW theory does not require separate treatment in the case degenerate spectrum. A thorough comparative study of RS and BW theory can be found in \parencite{silvert1972comparison}. 
+In fact, RS theory can be obtained as an approximation to BW theory by power series expansion of the resolvent operator \cite{wilson2009brillouin}. A major problem with
+the BW theory is that Eq. \eqref{chap_4:bweqn} is an implicit equation in $E_n$ and it must be solved in conjunction with Eq. \eqref{chap_4:eneryeq}. Solving this system of
+equations is usually tricky as compared to the simple perturbation terms obtained from RS theory.
+
+\section{Effective Hamiltonian}
+Recent efforts to extend the theory to many-body systems has led to systematization of BW theory in 
+terms of model space and effective hamiltonian formalism. This new representation requires the
+introduction of a model space with respect to a set of reference states. Any complete set of orthonormal states of hilbert space 
+is chosen as a set of reference states. Usually, eigenstates of the unperturbed hamiltonian $\hat{H}_{0}$ is chosen as a set of 
+reference states. The hilbert space is partitioned into model space and orthogonal space, by choosing one state from the set of
+reference states as model state \footnote{In this treatment, a single reference state is chosen as the model function. See 
+\cite{wilson2009brillouin} for multi-reference partitioning.}.
+
+Let $\mathrm{R}\equiv\{\ket{\phi_n}\dots\}$ is the set of reference states, $\ket{\phi_0} \in \mathrm{R}$ is the model state, 
+then $P = \ket{\phi_0}\bra{\phi_0}$ is the corresponding projection operator of the model space and $Q = \mathrm{1} - P$ is the
+projection operator corresponding to orthogonal space. A state $\ket{\psi}$ in the hilbert space can be projected onto the model 
+space using operator $P$, $\ket{\phi} = P\ket{\psi}$ and a wavefunction $\ket{\phi}$ in model space can be reconstructed in hilbert
+space using the wave operator $\Omega$ as $\ket{\psi} = \Omega\ket{\phi}$.
+
+Some useful relationships between operators $P$, $Q$ and $\Omega$ are 
+\begin{enumerate}
+ \item $P + Q = \mathrm{1}$ (by definition)
+ \item $P^2 = P$ and $Q^2 = Q$ (property of projection operators)
+ \item $PQ = QP = 0$ (using Property 1)
+ \item $\Omega^2\ket{\phi} = \Omega\ket{\phi}$ (by definition)
+ \item $\Omega P \ket{\phi} = \Omega \ket{\phi}$ and $P\Omega \ket{\psi} = P \ket{\psi}$ (by definition)
+\end{enumerate}
+
+Provided the eigenvalue equation
+$\hat{H}\ket{\psi} = E\ket{\psi}$, then $\ket{\phi} = P\ket{\psi}$ satisfies the equation 
+$\hat{H}_{eff}\ket{\phi} = E\ket{\phi}$, where 
+\begin{equation}
+  \hat{H}_{eff} = P\hat{H}\Omega P
+\end{equation}
+\begin{align*}
+ \hat{H}_{eff}\ket{\phi} &= P\hat{H}\Omega P \ket{\phi} \\
+ &= P\hat{H}\Omega P P\ket{\psi} \\
+ &= P\hat{H}\ket{\psi} \\
+ &= E\,P\ket{\psi} \\
+ &= E\ket{\phi}
+\end{align*}
+
+Therefore, the eigenvalues of the effective hamiltonian are equal to the eigenvalues of the original hamiltonian and the 
+eigenfunctions of the original hamiltonian can be obtained by application of the wave operator $\Omega$ on the eigenfunctions of
+the effective hamiltonian $\ket{\psi} = \Omega\ket{\phi}$.
+
+How do we obtain the wave operator $\Omega$ ? Operating $Q$ on the eigenvalue equation,
+\begin{align*}
+ Q\hat{H}\ket{\psi} &= E\,Q\ket{\psi} \\
+ Q\ket{\psi} &= \frac{Q\hat{H}}{E}\ket{\psi}
+\end{align*}
+Therefore,
+\begin{align}
+  \ket{\psi} &= (P + Q)\,\ket{\psi} \nonumber \\
+  &= P\ket{\psi} + Q\ket{\psi} \nonumber \\
+  \label{chap_4:effform} &= P\ket{\psi} + \frac{Q\hat{H}}{E}\ket{\psi} \\
+  P\ket{\psi} &= \left(1-\frac{Q\hat{H}}{E}\right)\ket{\psi} \nonumber \\
+  \label{chap_4:waveop} \ket{\psi} &= \left(1-\frac{Q\hat{H}}{E}\right)^{-1} P^2 \ket{\psi}  
+\end{align} Eq. \eqref{chap_4:effform} has the familiar iterative form as Eq. \eqref{chap_4:bweqn} with the choice of 
+$P = \ket{n}\bra{n}$. From Eq. \eqref{chap_4:waveop}, 
+\begin{equation}
+ \Omega = \left(1-\frac{Q\hat{H}}{E}\right)^{-1}P
+\end{equation}
+The inverse operation in the wave operator can be expanded to obtain the perturbative expansion.
+
+Usually, the effective hamiltonian is parameterized by energy. To obtain the solutions, we must diagonalize the effective hamiltonian by treating $E$ as a free parameter to
+obtain the eigenvalue expressions $E_{i} (i=1\dots \dim(H))$, and solve the equations $E = E_{i}$ to obtain the numerical values of energy eigenvalues.
+
+Above discussion is an abridged version of the theory of BW perturbation presented in \parencite{wilson2009brillouin}.
