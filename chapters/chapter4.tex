@@ -14,7 +14,7 @@ $\hat{V}$ is the perturbation term, and the eigendecomposition of $\hat{H}_{0}\q
   \braket{m|n} = \delta_{mn} \\
   \sum_{m} {\ket{m} \bra{m}} = \mathrm{1}
 \end{gather*}
-Using Brillouin-Wigner (BW) perturbation theory, we express $\{\ket{\psi_n},\dots\}$ and $\{E_n\,,\dots\}$, such that $\hat{H}\ket{\psi_n} = E_n\ket{\psi_n}$, in terms of
+using Brillouin-Wigner (BW) perturbation theory, we express $\{\ket{\psi_n},\dots\}$ and $\{E_n\,,\dots\}$, such that $\hat{H}\ket{\psi_n} = E_n\ket{\psi_n}$, in terms of
 $\hat{V}$ and $\{\ket{n},\dots\}$.
 
 \section{Introduction}
@@ -44,8 +44,9 @@ Define resolvent operator as $\hat{R}_{n} = (E_n - \hat{H}_{0})^{-1} = \sum_{n}{
 \begin{equation}
   \label{chap_4:bweqn}\ket{\psi_n} = \ket{n} +  \hat{R}_{n}(\mathrm{1} - \ket{n}\bra{n})\hat{V}\ket{\psi_n}
 \end{equation}
-The above equation is the main result of BW perturbation theory. Solving Eq. \eqref{chap_4:bweqn} self-consistently with 
-Eq. \eqref{chap_4:eneryeq}, solutions to the eigenvalue equation are obtained. Using the equation, we obtain an iterative solution to the schordinger equation. 
+The above equation is the main result of BW perturbation theory. Peculiarity of the above equation is that it depends on the undertermined parameter $E_n$, and this is unlike the
+Rayleigh-Schrodinger perturbation theory. Solving Eq. \eqref{chap_4:bweqn} self-consistently with Eq. \eqref{chap_4:eneryeq}, solutions to the eigenvalue equation are obtained.
+Using the equation, we obtain an iterative solution to the schordinger equation. 
 In each iteration, we obtain a new estimate of $\ket{\psi_n}$ by substituting the old estimate of $\ket{\psi_n}$ on the righthand side of Eq. \eqref{chap_4:bweqn}
 \begin{gather}
   \label{chap_4:itereq} \ket{\psi_{n}^{(j)}} = \ket{n} + \; \hat{R}(E_{n})\,(\hat{\mathbb{I}} - \ket{n}\bra{n})\hat{V}\ket{\psi_{n}^{(j-1)}} \\
@@ -76,10 +77,10 @@ equations is usually tricky as compared to the simple perturbation terms obtaine
 \section{Effective Hamiltonian}
 Recent efforts to extend the theory to many-body systems has led to systematization of BW theory in 
 terms of model space and effective hamiltonian formalism. This new representation requires the
-introduction of a model space with respect to a set of reference states. Any complete set of orthonormal states of hilbert space 
-is chosen as a set of reference states. Usually, eigenstates of the unperturbed hamiltonian $\hat{H}_{0}$ is chosen as a set of 
+introduction of a model space with respect to a set of reference states. Any complete set of orthonormal states of the hilbert space 
+is chosen as a set of reference states. Usually, the set of eigenstates of the unperturbed hamiltonian $\hat{H}_{0}$ is chosen as a set of 
 reference states. The hilbert space is partitioned into model space and orthogonal space, by choosing one state from the set of
-reference states as model state \footnote{In this treatment, a single reference state is chosen as the model function. See 
+reference states as the model state \footnote{In this treatment, a single reference state is chosen as the model function. See 
 \cite{wilson2009brillouin} for multi-reference partitioning.}.
 
 Let $\mathrm{R}\equiv\{\ket{\phi_n}\dots\}$ is the set of reference states, $\ket{\phi_0} \in \mathrm{R}$ is the model state, 

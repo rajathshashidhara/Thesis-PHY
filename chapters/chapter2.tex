@@ -116,6 +116,41 @@ We have established that
 Immediately we recognize that the RHS of Eq. \eqref{chap_2:geombargmanninv} is the argument of Bargmann invariant of states lying on the path $C$.
 
 The Berry curvature surface integral can also be expressed in terms of the Bargmann invariant. We derive the relationship below for a 2-dimensional parameter space
-labeled by $\bm{\lambda} = (\lambda_x, \lambda_y)$. This result can be easily generalized to arbitrary dimensions.
+labeled by $\bm{\lambda} = (\lambda_x, \lambda_y)$. This result can be easily generalized to arbitrary dimensions. Consider an infinitesimal square $Q$ in the parameter space 
+consisting of points $(\lambda_x, \lambda_y), (\lambda_x + \delta\lambda_x, \lambda_y), (\lambda_x + \delta\lambda_x, \lambda_y + \delta\lambda_y), (\lambda_x, \lambda_y+\delta\lambda_y)$
+in anti-clockwise order. The integral of berry connection around this closed loop is
+\begin{multline*}
+  \oint_{Q}{\mathbf{A}_{n}(\bm{\lambda})\cdot \delta\bm{\lambda}} = \\
+  -\arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})})
+\end{multline*}
+Using stokes theorem
+\begin{align*}
+  \oint_{Q}{\mathbf{A}_{n}(\bm{\lambda})\cdot \delta\bm{\lambda}} &= \int_{Q}{\mathbf{B}_{n}(\bm{\lambda})\cdot d\mathbf{S}_{\bm{\lambda}}}\\
+  &= \mathbf{B}_{n}(\bm{\lambda}) \delta\lambda_x\delta\lambda_y
+\end{align*}
+Combining these two results, we infer that
+\begin{multline}
+ \mathbf{B}_{n}(\bm{\lambda}) \delta\lambda_x\delta\lambda_y = \\
+ -\arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})})
+\end{multline}
+This result is particularly useful when numerically evaluating the surface integral of a berry phase in discretized parameter space.
+
+% The argument of the four-point Bargmann invariant is
+% \begin{multline}
+% \arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})}) \\
+% = \arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}) + \arg(\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}) \\ + \arg(\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}) + \arg(\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})}) 
+% \end{multline}
+% \begin{align}
+%  &= -A^{n}_{x}(\bm{\lambda})\delta\lambda_x - A^{n}_{y}(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})\delta\lambda_y + A^{n}_{x}(\bm{\lambda}+ \delta\lambda_x \hat{\mathbf{x}}+ \delta\lambda_y \hat{\mathbf{y}})\delta\lambda_x + A^{n}_{y}(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})\delta\lambda_y \nonumber \\
+%  &\text{Using taylor expansion upto $1$ st order,} \nonumber \\
+%  &\approx -A^{n}_{x}(\bm{\lambda})\delta\lambda_x - A^{n}_{y}(\bm{\lambda})\delta\lambda_y - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y +A^{n}_{x}(\bm{\lambda})\delta\lambda_x + \partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y\nonumber \\
+%  &+ A^{n}_{y}(\bm{\lambda})\delta\lambda_y + \partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y \nonumber \\
+%  &= - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y - \partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y+ \partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y \nonumber \\ 
+%  \label{chap_2:bargberry} &= - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y \\
+%  &= - \mathbf{B}_{n}(\bm{\lambda}) \cdot d\mathbf{S}_{\bm{\lambda}}
+% \end{align}
+% We have ignored $\partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x$ and $\partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y$ in Eq. \eqref{chap_2:bargberry},
+% because they are purely imaginary and the higher order contributions from the taylor series expansion will cancel them. This is guaranteed, because we have already proven
+% that the berry connection is a real number. Below is a proof of $\partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x$ is imaginary
 
 \section{Non-abelian Berry connection}
