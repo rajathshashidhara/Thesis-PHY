@@ -4,7 +4,7 @@
 % This work is licensed under the Creative Commons Attribution 4.0 International License. 
 % To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
-\chapter{Geometric Phase}
+\chapter{Geometric Phase}\label{ch:gp}
 Physical measurements or observations are extracted from quantum mechanical systems in the form of expectation values of hermitian operators $\braket{\psi|\hat{A}|\psi}$.
 Eigenvectors of the hamiltonian are only specified up to a phase factor. Expectation values and thereby, the physical observations are unaltered by a transformation of the form 
 $\psi \rightarrow e^{i \phi} \psi$. Gauge-dependent quantities are considered unphysical and the phase of the eigenvectors is usually thrown away from analysis. Berry
@@ -63,7 +63,6 @@ the parameter space. By application of stokes theorem, the line integral can be 
 Eq. \eqref{chap_2:gaugeindep} has a remarkable property of being gauge independent. Any transformation of the form 
 $\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, leaves Eq. \eqref{chap_2:gaugeindep} unchanged. 
 
-% \subsection{Anology to electromagnetism}
 Before we proceed, it is useful to define two important quantities called the berry connection and the berry curvature. \emph{Berry connection} is defined as
 \begin{equation}
  \mathbf{A}_{n}(\mathbf{R}) = i\braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})}
@@ -88,8 +87,11 @@ nonunitary and nonabelian situations \cite{aharonov1987phase, samuel1988general,
 \section{Bargmann invariants}
 A remarkable feature of the berry phase is that it is a geometric quantity, i.e., it is a property arising by virtue of the geometry of the 
 underlying hilbert space. In \parencite{mukunda1993quantum}, it is demonstrated that the berry phase is both gauge and reparameterization 
-invariant (thereby a geometric property) using purely kinematic arguments. Geometric phase is akin to parallel transport of vectors on a 
-non-trivial manifold. Just as the co-variant derivative of a vector on a manifold has contributions purely arising from the underlying 
+invariant (thereby a geometric property) using purely kinematic arguments.
+
+To each point in the parameter space, we associate a 1-dimensional complex vector space (spanned by all gauge choices of the eigenstate at that point). We call the parameter space a vector bundle for this reason.
+When we try to compare vectors from vector spaces associated with two different points in the parameter space, we need to use the Berry connection (akin to Levi-Cevita connection/
+Christoffel symbols in General relativity). Just as the co-variant derivative of a vector on a manifold has contributions purely arising from the underlying 
 geometry, the geometric phase is acquired by a state evolving in the hilbert space by virtue of its geometry \cite{simon1983holonomy}. 
 Precisely, berry phase is the holonomy in a hermitian line bundle in the language of differential geometry.
 
@@ -128,29 +130,48 @@ Using stokes theorem
   \oint_{Q}{\mathbf{A}_{n}(\bm{\lambda})\cdot \delta\bm{\lambda}} &= \int_{Q}{\mathbf{B}_{n}(\bm{\lambda})\cdot d\mathbf{S}_{\bm{\lambda}}}\\
   &= \mathbf{B}_{n}(\bm{\lambda}) \delta\lambda_x\delta\lambda_y
 \end{align*}
-Combining these two results, we infer that
+Combining these two results, we infer that\cite{rasta2016geometry}
 \begin{multline}
  \mathbf{B}_{n}(\bm{\lambda}) \delta\lambda_x\delta\lambda_y = \\
  -\arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})})
 \end{multline}
 This result is particularly useful when numerically evaluating the surface integral of a berry phase in discretized parameter space.
 
-% The argument of the four-point Bargmann invariant is
-% \begin{multline}
-% \arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})}) \\
-% = \arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}) + \arg(\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}) \\ + \arg(\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}) + \arg(\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})}) 
-% \end{multline}
-% \begin{align}
-%  &= -A^{n}_{x}(\bm{\lambda})\delta\lambda_x - A^{n}_{y}(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})\delta\lambda_y + A^{n}_{x}(\bm{\lambda}+ \delta\lambda_x \hat{\mathbf{x}}+ \delta\lambda_y \hat{\mathbf{y}})\delta\lambda_x + A^{n}_{y}(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})\delta\lambda_y \nonumber \\
-%  &\text{Using taylor expansion upto $1$ st order,} \nonumber \\
-%  &\approx -A^{n}_{x}(\bm{\lambda})\delta\lambda_x - A^{n}_{y}(\bm{\lambda})\delta\lambda_y - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y +A^{n}_{x}(\bm{\lambda})\delta\lambda_x + \partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y\nonumber \\
-%  &+ A^{n}_{y}(\bm{\lambda})\delta\lambda_y + \partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y \nonumber \\
-%  &= - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y - \partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y+ \partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y \nonumber \\ 
-%  \label{chap_2:bargberry} &= - \partial_{x}A^{n}_{y}(\bm{\lambda})\delta\lambda_x\delta\lambda_y + \partial_{y}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_y \\
-%  &= - \mathbf{B}_{n}(\bm{\lambda}) \cdot d\mathbf{S}_{\bm{\lambda}}
-% \end{align}
-% We have ignored $\partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x$ and $\partial_{y}A^{n}_{y}(\bm{\lambda})\delta\lambda_y\delta\lambda_y$ in Eq. \eqref{chap_2:bargberry},
-% because they are purely imaginary and the higher order contributions from the taylor series expansion will cancel them. This is guaranteed, because we have already proven
-% that the berry connection is a real number. Below is a proof of $\partial_{x}A^{n}_{x}(\bm{\lambda})\delta\lambda_x\delta\lambda_x$ is imaginary
-
 \section{Non-abelian Berry connection}
+In the derivation of Berry's phase, we assumed that there is/are no degeneracy or level crossings in the spectrum. In this section, we shall lift this restriction and examine its
+consequences. If we assume that the ground state is $N$ fold degenerate, and begin in one of the degenerate states, after varying the parameters in closed loop, we examine the effect 
+of this evolution on the state in the adiabatic limit \cite{wilczek1984appearance}. Unlike the previous discussion, the state can land up in a linear combination of the N-degenerate states.
+
+The treatment of such systems require us to generalize the definition of a berry connection to
+\begin{equation}
+ (A_{i})_{ab}(\mathbf{R}) = i \braket{n_{b} | \frac{\partial}{\partial R_{i}} | n_{a}}
+\end{equation} where $\ket{n_{a}}$ such that $a=1\dots N$, are the degenerate eigenstates of the hamiltonian. Notice that $\mathbf{A}$ is a d-dimensional (parameter space dimensions) vector of which
+each individual component is a $N \times N$ matrix. 
+Non-abelian Berry curvature is defined as 
+\begin{equation}
+ F_{ij} = \frac{\partial A_{i}}{\partial R_{j}} - \frac{\partial A_{j}}{\partial R_{i}} - i[A_{i}, A_{j}]
+\end{equation} However, the Berry curvature is not a gauge invariant quantity. Instead, $tr(F_{ij})$ is gauge invariant.
+
+As $\mathbf{A}$'s at different points in parameter space may not commute, we require the use of Path ordering operator (similar to Dyson series) to write the geometric phase 
+as the integral of the berry connection
+\begin{equation}
+ U = \mathcal{P}\exp\left(\oint A_{i}dR_{i}\right)
+\end{equation}
+where \begin{equation}
+       \ket{\psi_{a}}(t) = U_{ab}(t) \ket{n_{b}}(t)
+      \end{equation}
+We began with $\ket{\psi_{a}(0)} = \ket{n_{a}(0)}$.
+
+\section{Chern numbers}
+An important theorem of differential geometry, called the Gauss-Bonnet theorem states that the surface integral of Gaussian curvature over a closed surface is $2\pi$ times the
+Euler characteristic of the surface \cite{rasta2016geometry,moore2014introduction}. Euler characteristic of a polyhedra is defined as $\chi = V - E + F$, where $V$ is the number of vertices, $E$ is the number of edges and $F$ is the
+number of faces. The Euler characteristic for a continuous surface can be obtained by triangulation of the surface. The Euler characteristic of a closed surface is equal to 
+$2(1-g)$, $g$ is the genus of the surface or intuitively the number of holes in the surface. Two surfaces that are continuously deformable into each other have the same genus.
+Therefore, $\chi$ for a closed surface is an integral topological invariant and from Gauss-Bonnet theorem, the integral of the curvature over a closed surface is an integral multiple of
+$2\pi$.
+\begin{equation}
+\iint_{S}{\mathbf{F}.d\mathbf{S}} = 2\pi\chi(S) = 4\pi(1-g(S)) = 2\pi C
+\end{equation}
+
+The Berry curvature satisfies the Gauss-Bonnet theorem, thereby the surface integral over a closed parameter space is an integral multiple of $2\pi$. The integers are called the
+Chern numbers of the first class\cite{simon1983holonomy}. We shall see that the geometric phase and the chern numbers are closely related to hall conductivity in Chapter \ref{ch:qhe}.

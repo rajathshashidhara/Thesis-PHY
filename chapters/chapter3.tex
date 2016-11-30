@@ -4,8 +4,63 @@
 % This work is licensed under the Creative Commons Attribution 4.0 International License. 
 % To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
-\chapter{Quantum Hall Effect}
-\section{Phenomenon}
-\section{Landau levels}
-\section{Corbino geometry and Lauglin's argument}
-\section{Kubo formula and the TKNN invariant}
+\chapter{Quantum Hall Effect}\label{ch:qhe}
+It was observed in two-dimensional materials placed in strong magnetic fields, the hall conductivity is quantized\footnote{Knowledge of Classical Hall effect is assumed in this discussion.
+\parencite{kitel1971introduction,tong2016lectures,jain2007composite} contain excellent review of the subject} \cite{klitzing1980new, prange1990quantum, jain2007composite}. The striking feature is that the quantization is robust to disorder and independent of
+material or its geometry. Classical conduction theories such as the Drude's model failed to explain this strange phenomenon. 
+
+Eventually, the Landau problem that describes the cyclotron motion of electrons restricted to 2-dimensional plane in the presence of magnetic field was connected with the Quantum hall effect. 
+The energy levels in the Landau problem are quantized, called the Landau levels, each level is degenerate by roughly the magnitude of magnetic flux (magnetic field times the area) passing 
+through the sample. The quantization of hall conductance was linked to the filling fraction of the landau levels. Although this was successful in explaining the magnitude of hall
+conductance, it failed to explain the robustness of the phenomenon. The idea of edge states and the role of disorder was incorporated into heuristic explanations to explain the plateaus of hall conductance, based on localization
+of states in the presence of disorder. However, if only a fraction of all states are localized, and only the localized states contribute to conduction, the value of hall conduction as explained
+by the filling fraction of landau levels assuming each state contributed equally to conduction, is in direct contradiction to the idea of localized states. This puzzle was finally cracked by 
+Laughlin using the idea of gauge invariance of electromagnetism and the concept of spectral flow \cite{laughlin1981quantized, prange1981quantized, halperin1982quantized, jain2007composite, tong2016lectures}.
+
+The breakthrough result was established by Thouless et al., as they demonstrated that hall conductivity is indeed a topological invariant which is an integral quantity\footnote{This work was awarded the Nobel prize in 2016 - incidentally the period during which this document was compiled} \cite{thouless1982quantized,kohmoto1985topological,simon1983holonomy}. The topology of the hilbert space parameterized by 
+the crystal momentum of the lattice, manifests as the hall conductance of the material. This explanation supplanted all the previous theories, unveiled the deeper topological links to conduction
+and launched a whole branch of physics called topological insulators. We shall study techniques in this thesis to calculate the topological invariant and identify topological phase transitions
+in quantum systems.
+
+\section{Brillouin zone as the parameter space}
+Consider a particle moving on a rectangular lattice. By application of bloch theorem, the wavefunction can be factorized as
+\begin{equation*}
+ \ket{\psi_{\mathbf{k}}(\mathbf{x})} = e^{i\mathbf{x}\cdot\mathbf{x}}\ket{u_{\mathbf{k}}(\mathbf{x})}
+\end{equation*} such that $\ket{u_{\mathbf{k}}(\mathbf{x})} = \ket{u_{\mathbf{k}}(\mathbf{x}+\mathbf{R})}$ where $\mathbf{R}$ is a lattice translation vector.
+The crystal momentum $\mathbf{k}$ is bounded in the first Brillouin zone\footnote{In the presence of magnetic field, we shall use the magnetic Brillouin zone. See Chapter \ref{ch:aah}.}
+\begin{equation*}
+ \frac{-\pi}{a} < k_{x} \leq \frac{\pi}{a} \text{ and } \frac{-\pi}{b} < k_{y} \leq \frac{\pi}{b}
+\end{equation*} The Hamiltonian $\hat{H}(\mathbf{k})$ is also parametrized by the crystal momentum. The Brillouin zone is a torus $\mathbf{T}^2$ and by changing the parameters
+$k_{x}$ and $k_{y}$, we can apply the idea of Berry described in the previous chapter.
+
+\section{Kubo formula for conductivity}
+We shall use the Brillouin zone as the arena and calculate the transverse electrical conductivity on a 2D rectangular lattice. Bands are labelled by $\alpha$ and the crystal momentum by $\mathbf{k}$.
+The linear response of current in the transverse direction to the applied electric field was derived by Kubo \cite{kubo1956general,kubo1957statistical,tong2016lectures,kohmoto1985topological,thouless1982quantized}.
+Kubo's result is a relationship like Ohm's law, the electric field (stimulus) and the current density (response) are correlated linearly as\footnote{At absolute zero $T=0$.}
+\begin{gather}
+ J_{x} = \sigma_{xy} E_{y} \\
+ \sigma_{xy} = i\hbar \sum_{\alpha,\beta | E_{\alpha}<E_{F}<E_{\beta}}\int_{\mathbf{T}^2}\frac{d^2 k}{(2\pi)^2} \frac{\braket{u_k^\alpha |J_{y}|u_k^\beta}\braket{u_k^\beta |J_{x}|u_k^\alpha} - \braket{u_k^\alpha |J_{x}|u_k^\beta}\braket{u_k^\beta |J_{y}|u_k^\alpha}}{(E_{\beta}(\mathbf{k})-E_{\alpha}(\mathbf{k}))^2}
+\end{gather}
+$E_{F}$ is the Fermi energy.
+
+\section{TKNN Invariant}
+Thouless et al. in their seminal paper, using the Kubo formula for electric conductivity, showed that the hall conductivity of landau level problem on a lattice is a topological property
+and it is quantized.
+
+The kubo formula can be recast into this form \cite{tong2016lectures, kohmoto1985topological}
+\begin{equation}
+ \sigma_{xy} = \frac{ie^2}{\hbar} \sum_{\alpha | E_{\alpha}<E_{F}}\int_{\mathbf{T}^2}\frac{d^2 k}{(2\pi)^2} \braket{\partial_{y}u_{\mathbf{k}}^\alpha | \partial_{x} u_{\mathbf{k}}^\alpha} - \braket{\partial_{x}u_{\mathbf{k}}^\alpha | \partial_{y} u_{\mathbf{k}}^\alpha}
+\end{equation}
+The integral in the above equation is the integral of Berry curvature, already familiar to us from our discussion on geometric phase, as the chern number (See Chapter \ref{ch:gp}).
+
+Therefore, we can express the hall conductivity as the sum of chern numbers of filled bands
+\begin{equation}
+ \sigma_{xy} = -\frac{e^2}{2\pi\hbar}\sum_{\alpha | E_{\alpha} < E_{F}} C_{\alpha}
+\end{equation}
+Now it is clear why the integer hall effect is robust - chern numbers are discrete integers and any deformation of the system that does not change the underlying topology of the hilbert space
+does not affect the hall conductivity.
+
+\section{Topological phase transitions}
+As shown above, topology is deeply connected with conduction properties of the material. Changes to topological invariants when a physical parameter of the system is varied indicates
+sharp changes in conduction properties. This kind of tuning of electronic properties has immense applications in the domain of high-performance electronics and quantum computing.
+In this thesis, we introduce some driving or perturbations in the Aubry-Andre-Harper model to discover topological phase transitions.

@@ -12,9 +12,18 @@
 % \usepackage[urw-garamond]{mathdesign}
 % \usepackage{lmodern}
 % \usepackage[rm,light]{roboto}
-\usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc}
 % \usepackage{gentium}
 % \usepackage[light]{merriweather}
+
+% \usepackage{mathpazo} % math & rm
+% \linespread{1.05}        % Palatino needs more leading (space between lines)
+% \usepackage[scaled]{helvet} % ss
+% \usepackage{courier} % tt
+% \normalfont
+% \usepackage[T1]{fontenc}
+
+\usepackage{array}
 \usepackage{sectsty}
 \usepackage{parskip}
 \usepackage{fancyhdr}
@@ -26,6 +35,7 @@
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage{blindtext}
+\usepackage[font={small,it}]{caption}
 
 \usepackage{bigints}
 \usepackage{amsmath}
@@ -39,7 +49,33 @@
 % \usepackage[backend=biber,style=phys,articletitle=false,biblabel=brackets,chaptertitle=false,pageranges=false]{biblatex}  %APS style
 \addbibresource{./bibliography/ref.bib}
 
-% \linespread{1.1}
+%Fix bold fonts in mathmode
+%
+\DeclareFontFamily{OT1}{cmbr}{\hyphenchar\font45 }
+\DeclareFontShape{OT1}{cmbr}{m}{n}{%
+  <-9>cmbr8
+  <9-10>cmbr9
+  <10-17>cmbr10
+  <17->cmbr17
+}{}
+\DeclareFontShape{OT1}{cmbr}{m}{sl}{%
+  <-9>cmbrsl8
+  <9-10>cmbrsl9
+  <10-17>cmbrsl10
+  <17->cmbrsl17
+}{}
+\DeclareFontShape{OT1}{cmbr}{m}{it}{%
+  <->ssub*cmbr/m/sl
+}{}
+\DeclareFontShape{OT1}{cmbr}{b}{n}{%
+  <->ssub*cmbr/bx/n
+}{}
+\DeclareFontShape{OT1}{cmbr}{bx}{n}{%
+  <->cmbrbx10
+}{}
+%
+
+
 \sectionfont{\fontsize{13}{16}\selectfont}
 \subsectionfont{\fontsize{12}{15}\selectfont}
 
@@ -50,7 +86,7 @@
   colorlinks=true
 }
 
-\graphicspath{{./images/}}
+\graphicspath{{./images/},{./figures/}}
 \pagestyle{fancy}
 
 \theoremstyle{definition}	\newtheorem{theorem}{Theorem}[section]
@@ -59,12 +95,20 @@
   \include{frontmatter}
   \include{chapters/chapter1}
   \part{Background}
-  \include{chapters/chapter2}  
+  \include{chapters/chapter2}	
   \include{chapters/chapter3}
   \include{chapters/chapter4}
   \include{chapters/chapter5}
-  \begin{appendices}
-%     \include{appendices/bw}
-  \end{appendices}  
+  \include{chapters/chapter6}
+  \part{Study of driven AAH models}
+  \include{chapters/chapter7}
+  \include{chapters/chapter8}
+  \include{chapters/chapter9}
+%   \include{chapters/chapter10}
+    
+  \renewcommand{\thechapter}{\Alph{chapter}}
+  \part{Appendices}
+    \include{appendices/dalibard}
+    \include{appendices/bw}
   \printbibliography
 \end{document}
