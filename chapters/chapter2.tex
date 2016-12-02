@@ -6,34 +6,34 @@
 
 \chapter{Geometric Phase}\label{ch:gp}
 Physical measurements or observations are extracted from quantum mechanical systems in the form of expectation values of hermitian operators $\braket{\psi|\hat{A}|\psi}$.
-Eigenvectors of the hamiltonian are only specified up to a phase factor. Expectation values and thereby, the physical observations are unaltered by a transformation of the form 
+Eigenvectors of the Hamiltonian are only specified up to a phase factor. Expectation values and thereby, the physical observations are unaltered by a transformation of the form 
 $\psi \rightarrow e^{i \phi} \psi$. Gauge-dependent quantities are considered unphysical and the phase of the eigenvectors is usually thrown away from analysis. Berry
 demonstrated the existence of a gauge-invariant phase called the geometric phase - a physically observable quantity.
 % This guage choice can be eliminated by formulating quantum mechanics in terms of guage invariant representations such as density 
 % matrices $\psi\psi^{\dagger}$. Expectation value of an operator $\hat{A}$ is recast as $\braket{\hat{A}} = tr(\psi\psi^{\dagger}\hat{A})$.
 
 \section{Definition}
-Prof. M V Berry studied the adiabatic evolution of a quantum system described by the hamiltonian $\hat{H}(\mathbf{R})$, parameterized by external factors $\mathbf{R}$ -- such as
-magnetic field, electric field, etc \cite{berry1984quantal}. The hamiltonian is varied by slowly changing $\mathbf{R}$ from time $t=0$ to $t=T$ such that $\mathbf{R}(0)=\mathbf{R}(T)$. This evolution is
+Prof. M V Berry studied the adiabatic evolution of a quantum system described by the Hamiltonian $\hat{H}(\mathbf{R})$, parameterized by external factors $\mathbf{R}$ -- such as
+magnetic field, electric field, etc \cite{berry1984quantal}. The Hamiltonian is varied by slowly changing $\mathbf{R}$ from time $t=0$ to $t=T$ such that $\mathbf{R}(0)=\mathbf{R}(T)$. This evolution is
 a closed loop in the parameter space. Apart from the adiabatic assumption, we also assume that the energy spectrum is discrete and there are no level crossings or degeneracies in the 
-energy spectrum. Using the guage freedom, we enforce single-valuedness on the eigenvectors of the hamiltonian in the parameter space. 
-Under the assumptions stated above, eigenvectors of the hamiltonian can be uniquely identified as $\ket{n(\mathbf{R})}$ at each point in parameter space without any ambiguity.
+energy spectrum. Using the guage freedom, we enforce single-valuedness on the eigenvectors of the Hamiltonian in the parameter space. 
+Under the assumptions stated above, eigenvectors of the Hamiltonian can be uniquely identified as $\ket{n(\mathbf{R})}$ at each point in parameter space without any ambiguity.
 The schrodinger equation is stated in this notation as 
 \begin{gather}
  \hat{H}(\mathbf{R}(t))\ket{n(\mathbf{R}(t))} = E(\mathbf{R}(t))\ket{n(\mathbf{R}(t))} \\
  \label{chap_2:timedepschroeq} i\hbar\frac{\partial}{\partial t}\ket{\psi(t)} = \hat{H}(t)\ket{\psi(t)}
-\end{gather} In the case of static time-independent hamiltonian, any state expanded as a linear combination of stationary states is written as
+\end{gather} In the case of static time-independent Hamiltonian, any state expanded as a linear combination of stationary states is written as
 $\ket{\psi(t)} = \sum{c_n e^{-\frac{i E_{n}(t)}{\hbar}} \ket{n}}$. Taking cue from this, the expansion ansatz
 \begin{equation}
 \ket{\psi(t)} = \sum{c_{n}(t) e^{-\frac{i}{\hbar}\int_{0}^{t}{E_{n}(t) dt}} \ket{n(t)}}
-\end{equation} is a valid generalization for a system with a time-dependent hamiltonian. When the ansatz is substituted into Eq. \eqref{chap_2:timedepschroeq}, we obtain
+\end{equation} is a valid generalization for a system with a time-dependent Hamiltonian. When the ansatz is substituted into Eq. \eqref{chap_2:timedepschroeq}, we obtain
 \begin{equation}
   \label{chap_2:coeffslinercomb}\dot{c}_{m}(t) = -c_{m}(t) \Braket{m(t) | \frac{\partial}{\partial t} m(t)} - \sum_{n}{c_{n}(t) e^{i (\theta_n - \theta_m)} \frac{\braket{m(t)|\widehat{\dot{H}}|n(t)}}{E_n - E_m}}
 \end{equation} where $\theta_n = \frac{-1}{\hbar}\int_{0}^{t}{E_n(t')\,dt'}$. In the adiabatic limit, the transition probability between states tends to zero.
 We ignore the second term in the general solution above to obtain the result
 \begin{equation}
  c_{n}(t) = e^{i \gamma_{n}(t)}\,c_{n}(0)
-\end{equation} If we started in an eigenstate of the hamiltonian $\ket{\psi(0)} = \ket{n(\mathbf{R}(0)}$, then the state evolves as
+\end{equation} If we started in an eigenstate of the Hamiltonian $\ket{\psi(0)} = \ket{n(\mathbf{R}(0)}$, then the state evolves as
 \begin{equation}
  \ket{\psi(t)} = e^{i \gamma_{n}(t)} e^{i \theta_{n}(\mathbf{R}(t))} \ket{n(\mathbf{R}(t))}
 \end{equation} remaining in the $n$th eigenstate all along, only picking up phase factors. In the case of cyclic evolution, we write
@@ -50,7 +50,7 @@ of $\braket{n(t)|n(t)} = 1$.
  \left[\frac{\partial}{\partial t}\bra{n(t)}\right]\ket{n(t)} + \bra{n(t)}\left[ \frac{\partial}{\partial t}\ket{n(t)}\right] = 0 \\
  \bra{n(t)}\left[\frac{\partial}{\partial t}\ket{n(t)}\right] = -\left(\bra{n(t)}\left[\frac{\partial}{\partial t}\ket{n(t)}\right]\right)^{*}
 \end{gather*}
-$\theta_{n}(T)$ is the familiar dynamical phase and $\gamma_{n}(C)$ is known as geometric phase or simply berry phase. While the dynamical phase is a time-dependent quantity,
+$\theta_{n}(T)$ is the familiar dynamical phase and $\gamma_{n}(C)$ is known as geometric phase or simply Berry phase. While the dynamical phase is a time-dependent quantity,
 the geometric phase is a line integral, that only depends on path traversed in the parameter space. Another important observation is the fact that $\gamma_{n}$ is a 
 non-integrable quantity as it is not single valued - $\gamma_{n}(0) \neq \gamma_{n}(T)$ in the parameter space. Therefore, the geometric phase cannot be expressed as a field over
 the parameter space. By application of stokes theorem, the line integral can be convereted into a surface integral as shown below
@@ -63,7 +63,7 @@ the parameter space. By application of stokes theorem, the line integral can be 
 Eq. \eqref{chap_2:gaugeindep} has a remarkable property of being gauge independent. Any transformation of the form 
 $\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, leaves Eq. \eqref{chap_2:gaugeindep} unchanged. 
 
-Before we proceed, it is useful to define two important quantities called the berry connection and the berry curvature. \emph{Berry connection} is defined as
+Before we proceed, it is useful to define two important quantities called the Berry connection and the Berry curvature. \emph{Berry connection} is defined as
 \begin{equation}
  \mathbf{A}_{n}(\mathbf{R}) = i\braket{n(\mathbf{R})| \bm{\nabla_{R}} | n(\mathbf{R})}
 \end{equation}
@@ -74,10 +74,10 @@ and the \emph{Berry curvature} is given by
 \begin{equation}
  \gamma_{n}(C)= \oint_{C}{\mathbf{A}_{n}(\mathbf{R})\cdot \, d\mathbf{R}} = \int_{S}{\mathbf{B}_{n}(\mathbf{R})\cdot \, d\mathbf{S}}
 \end{equation}
-If we transform the states as $\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, then the berry connection transforms as
-$\mathbf{A}_{n}(\mathbf{R}) \rightarrow \mathbf{A}_{n}(\mathbf{R}) - \bm{\nabla_{R}} \delta(\mathbf{R})$, but the berry curvature remains unchanged. This shows an uncanny
-resemblance between magnetic vector potential and the berry connection and consequently the magnetic field strength and the berry curvature. However, it must be kept in mind that
-the berry connection and the berry curvature are defined over the parameter space (could be more than 4-dimensional) and not the real space.
+If we transform the states as $\ket{n(\mathbf{R})} \rightarrow e^{i\delta(\mathbf{R})} \ket{n(\mathbf{R})}$, then the Berry connection transforms as
+$\mathbf{A}_{n}(\mathbf{R}) \rightarrow \mathbf{A}_{n}(\mathbf{R}) - \bm{\nabla_{R}} \delta(\mathbf{R})$, but the Berry curvature remains unchanged. This shows an uncanny
+resemblance between magnetic vector potential and the Berry connection and consequently the magnetic field strength and the Berry curvature. However, it must be kept in mind that
+the Berry connection and the Berry curvature are defined over the parameter space (could be more than 4-dimensional) and not the real space.
 
 Geometric phase was overlooked as physically irrelevant as the expectation values are independent of the phase of eigenfunctions. 
 As opposed to the then prevalent notion, Prof. Berry, in his seminal paper, demonstrated that the geometric phase is in fact, physically observable \cite{berry1984quantal,wilczek1989geometric}.
@@ -85,17 +85,17 @@ Several assumptions imposed by Prof. Berry in defining the geometric phase can b
 nonunitary and nonabelian situations \cite{aharonov1987phase, samuel1988general, wilczek1984appearance, mukunda1993quantum}.
 
 \section{Bargmann invariants}
-A remarkable feature of the berry phase is that it is a geometric quantity, i.e., it is a property arising by virtue of the geometry of the 
-underlying hilbert space. In \parencite{mukunda1993quantum}, it is demonstrated that the berry phase is both gauge and reparameterization 
+A remarkable feature of the Berry phase is that it is a geometric quantity, i.e., it is a property arising by virtue of the geometry of the 
+underlying hilbert space. In \parencite{mukunda1993quantum}, it is demonstrated that the Berry phase is both gauge and reparameterization 
 invariant (thereby a geometric property) using purely kinematic arguments.
 
 To each point in the parameter space, we associate a 1-dimensional complex vector space (spanned by all gauge choices of the eigenstate at that point). We call the parameter space a vector bundle for this reason.
 When we try to compare vectors from vector spaces associated with two different points in the parameter space, we need to use the Berry connection (akin to Levi-Cevita connection/
 Christoffel symbols in General relativity). Just as the co-variant derivative of a vector on a manifold has contributions purely arising from the underlying 
 geometry, the geometric phase is acquired by a state evolving in the hilbert space by virtue of its geometry \cite{simon1983holonomy}. 
-Precisely, berry phase is the holonomy in a hermitian line bundle in the language of differential geometry.
+Precisely, Berry phase is the holonomy in a hermitian line bundle in the language of differential geometry.
 
-In this section, our intention is to express the berry phase in terms of gauge invariant quantities called Bargmann invariants. 
+In this section, our intention is to express the Berry phase in terms of gauge invariant quantities called Bargmann invariants. 
 Bargmann invariant of order $j$ of a series of $j$ normalized states $\ket{\psi_j}$ such that $\braket{\psi_j|\psi_{j+1}} \neq 0$ is defined as 
 \begin{equation}
  \Delta^{(j)}(\psi_1, \dots, \psi_j) = \braket{\psi_1 | \psi_2}\braket{\psi_2|\psi_3}\dots\braket{\psi_{j-1}|\psi_j}\braket{\psi_j|\psi_1}
@@ -120,7 +120,7 @@ Immediately we recognize that the RHS of Eq. \eqref{chap_2:geombargmanninv} is t
 The Berry curvature surface integral can also be expressed in terms of the Bargmann invariant. We derive the relationship below for a 2-dimensional parameter space
 labeled by $\bm{\lambda} = (\lambda_x, \lambda_y)$. This result can be easily generalized to arbitrary dimensions. Consider an infinitesimal square $Q$ in the parameter space 
 consisting of points $(\lambda_x, \lambda_y), (\lambda_x + \delta\lambda_x, \lambda_y), (\lambda_x + \delta\lambda_x, \lambda_y + \delta\lambda_y), (\lambda_x, \lambda_y+\delta\lambda_y)$
-in anti-clockwise order. The integral of berry connection around this closed loop is
+in anti-clockwise order. The integral of Berry connection around this closed loop is
 \begin{multline*}
   \oint_{Q}{\mathbf{A}_{n}(\bm{\lambda})\cdot \delta\bm{\lambda}} = \\
   -\arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})})
@@ -135,17 +135,17 @@ Combining these two results, we infer that\cite{rasta2016geometry}
  \mathbf{B}_{n}(\bm{\lambda}) \delta\lambda_x\delta\lambda_y = \\
  -\arg(\braket{n(\bm{\lambda})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})}\braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}})|n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})}\\ \braket{n(\bm{\lambda} + \delta\lambda_x \hat{\mathbf{x}} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})}\braket{n(\bm{\lambda} + \delta\lambda_y \hat{\mathbf{y}})|n(\bm{\lambda})})
 \end{multline}
-This result is particularly useful when numerically evaluating the surface integral of a berry phase in discretized parameter space.
+This result is particularly useful when numerically evaluating the surface integral of a Berry phase in discretized parameter space.
 
 \section{Non-abelian Berry connection}
-In the derivation of Berry's phase, we assumed that there is/are no degeneracy or level crossings in the spectrum. In this section, we shall lift this restriction and examine its
+In the derivation of Berry's phase, we assumed that there is/are no degeneracy or level crossings in the spectrum. In this section, we sHall lift this restriction and examine its
 consequences. If we assume that the ground state is $N$ fold degenerate, and begin in one of the degenerate states, after varying the parameters in closed loop, we examine the effect 
 of this evolution on the state in the adiabatic limit \cite{wilczek1984appearance}. Unlike the previous discussion, the state can land up in a linear combination of the N-degenerate states.
 
-The treatment of such systems require us to generalize the definition of a berry connection to
+The treatment of such systems require us to generalize the definition of a Berry connection to
 \begin{equation}
  (A_{i})_{ab}(\mathbf{R}) = i \braket{n_{b} | \frac{\partial}{\partial R_{i}} | n_{a}}
-\end{equation} where $\ket{n_{a}}$ such that $a=1\dots N$, are the degenerate eigenstates of the hamiltonian. Notice that $\mathbf{A}$ is a d-dimensional (parameter space dimensions) vector of which
+\end{equation} where $\ket{n_{a}}$ such that $a=1\dots N$, are the degenerate eigenstates of the Hamiltonian. Notice that $\mathbf{A}$ is a d-dimensional (parameter space dimensions) vector of which
 each individual component is a $N \times N$ matrix. 
 Non-abelian Berry curvature is defined as 
 \begin{equation}
@@ -153,7 +153,7 @@ Non-abelian Berry curvature is defined as
 \end{equation} However, the Berry curvature is not a gauge invariant quantity. Instead, $tr(F_{ij})$ is gauge invariant.
 
 As $\mathbf{A}$'s at different points in parameter space may not commute, we require the use of Path ordering operator (similar to Dyson series) to write the geometric phase 
-as the integral of the berry connection
+as the integral of the Berry connection
 \begin{equation}
  U = \mathcal{P}\exp\left(\oint A_{i}dR_{i}\right)
 \end{equation}
@@ -174,4 +174,4 @@ $2\pi$.
 \end{equation}
 
 The Berry curvature satisfies the Gauss-Bonnet theorem, thereby the surface integral over a closed parameter space is an integral multiple of $2\pi$. The integers are called the
-Chern numbers of the first class\cite{simon1983holonomy}. We shall see that the geometric phase and the chern numbers are closely related to hall conductivity in Chapter \ref{ch:qhe}.
+Chern numbers of the first class\cite{simon1983holonomy}. We sHall see that the geometric phase and the chern numbers are closely related to Hall conductivity in Chapter \ref{ch:qhe}.

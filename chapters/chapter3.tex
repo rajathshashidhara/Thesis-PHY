@@ -5,21 +5,21 @@
 % To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
 
 \chapter{Quantum Hall Effect}\label{ch:qhe}
-It was observed in two-dimensional materials placed in strong magnetic fields, the hall conductivity is quantized\footnote{Knowledge of Classical Hall effect is assumed in this discussion.
+It was observed in two-dimensional materials placed in strong magnetic fields, the Hall conductivity is quantized\footnote{Knowledge of Classical Hall effect is assumed in this discussion.
 \parencite{kitel1971introduction,tong2016lectures,jain2007composite} contain excellent review of the subject} \cite{klitzing1980new, prange1990quantum, jain2007composite}. The striking feature is that the quantization is robust to disorder and independent of
 material or its geometry. Classical conduction theories such as the Drude's model failed to explain this strange phenomenon. 
 
-Eventually, the Landau problem that describes the cyclotron motion of electrons restricted to 2-dimensional plane in the presence of magnetic field was connected with the Quantum hall effect. 
+Eventually, the Landau problem that describes the cyclotron motion of electrons restricted to 2-dimensional plane in the presence of magnetic field was connected with the Quantum Hall effect. 
 The energy levels in the Landau problem are quantized, called the Landau levels, each level is degenerate by roughly the magnitude of magnetic flux (magnetic field times the area) passing 
-through the sample. The quantization of hall conductance was linked to the filling fraction of the landau levels. Although this was successful in explaining the magnitude of hall
-conductance, it failed to explain the robustness of the phenomenon. The idea of edge states and the role of disorder was incorporated into heuristic explanations to explain the plateaus of hall conductance, based on localization
-of states in the presence of disorder. However, if only a fraction of all states are localized, and only the localized states contribute to conduction, the value of hall conduction as explained
-by the filling fraction of landau levels assuming each state contributed equally to conduction, is in direct contradiction to the idea of localized states. This puzzle was finally cracked by 
+through the sample. The quantization of Hall conductance was linked to the filling fraction of the Landau levels. Although this was successful in explaining the magnitude of Hall
+conductance, it failed to explain the robustness of the phenomenon. The idea of edge states and the role of disorder was incorporated into heuristic explanations to explain the plateaus of Hall conductance, based on localization
+of states in the presence of disorder. However, if only a fraction of all states are localized, and only the localized states contribute to conduction, the value of Hall conduction as explained
+by the filling fraction of Landau levels assuming each state contributed equally to conduction, is in direct contradiction to the idea of localized states. This puzzle was finally cracked by 
 Laughlin using the idea of gauge invariance of electromagnetism and the concept of spectral flow \cite{laughlin1981quantized, prange1981quantized, halperin1982quantized, jain2007composite, tong2016lectures}.
 
-The breakthrough result was established by Thouless et al., as they demonstrated that hall conductivity is indeed a topological invariant which is an integral quantity\footnote{This work was awarded the Nobel prize in 2016 - incidentally the period during which this document was compiled} \cite{thouless1982quantized,kohmoto1985topological,simon1983holonomy}. The topology of the hilbert space parameterized by 
-the crystal momentum of the lattice, manifests as the hall conductance of the material. This explanation supplanted all the previous theories, unveiled the deeper topological links to conduction
-and launched a whole branch of physics called topological insulators. We shall study techniques in this thesis to calculate the topological invariant and identify topological phase transitions
+The breakthrough result was established by Thouless et al., as they demonstrated that Hall conductivity is indeed a topological invariant which is an integral quantity\footnote{This work was awarded the Nobel prize in 2016 - incidentally the period during which this document was compiled} \cite{thouless1982quantized,kohmoto1985topological,simon1983holonomy}. The topology of the hilbert space parameterized by 
+the crystal momentum of the lattice, manifests as the Hall conductance of the material. This explanation supplanted all the previous theories, unveiled the deeper topological links to conduction
+and launched a whole branch of physics called topological insulators. We sHall study techniques in this thesis to calculate the topological invariant and identify topological phase transitions
 in quantum systems.
 
 \section{Brillouin zone as the parameter space}
@@ -44,21 +44,21 @@ Kubo's result is a relationship like Ohm's law, the electric field (stimulus) an
 $E_{F}$ is the Fermi energy.
 
 \section{TKNN Invariant}
-Thouless et al. in their seminal paper, using the Kubo formula for electric conductivity, showed that the hall conductivity of landau level problem on a lattice is a topological property
+Thouless et al. in their seminal paper, using the Kubo formula for electric conductivity, showed that the Hall conductivity of Landau level problem on a lattice is a topological property
 and it is quantized.
 
-The kubo formula can be recast into this form \cite{tong2016lectures, kohmoto1985topological}
+The Kubo formula can be recast into this form \cite{tong2016lectures, kohmoto1985topological}
 \begin{equation}
  \sigma_{xy} = \frac{ie^2}{\hbar} \sum_{\alpha | E_{\alpha}<E_{F}}\int_{\mathbf{T}^2}\frac{d^2 k}{(2\pi)^2} \braket{\partial_{y}u_{\mathbf{k}}^\alpha | \partial_{x} u_{\mathbf{k}}^\alpha} - \braket{\partial_{x}u_{\mathbf{k}}^\alpha | \partial_{y} u_{\mathbf{k}}^\alpha}
 \end{equation}
-The integral in the above equation is the integral of Berry curvature, already familiar to us from our discussion on geometric phase, as the chern number (See Chapter \ref{ch:gp}).
+The integral in the above equation is the integral of Berry curvature, already familiar to us from our discussion on geometric phase, as the Chern number (See Chapter \ref{ch:gp}).
 
-Therefore, we can express the hall conductivity as the sum of chern numbers of filled bands
+Therefore, we can express the Hall conductivity as the sum of Chern numbers of filled bands
 \begin{equation}
  \sigma_{xy} = -\frac{e^2}{2\pi\hbar}\sum_{\alpha | E_{\alpha} < E_{F}} C_{\alpha}
 \end{equation}
-Now it is clear why the integer hall effect is robust - chern numbers are discrete integers and any deformation of the system that does not change the underlying topology of the hilbert space
-does not affect the hall conductivity.
+Now it is clear why the integer Hall effect is robust - Chern numbers are discrete integers and any deformation of the system that does not change the underlying topology of the hilbert space
+does not affect the Hall conductivity.
 
 \section{Topological phase transitions}
 As shown above, topology is deeply connected with conduction properties of the material. Changes to topological invariants when a physical parameter of the system is varied indicates

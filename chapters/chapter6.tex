@@ -22,8 +22,8 @@ Hamiltonian in the presence of magnetic field is obtained by replacing $\hat{\ma
 \end{equation}
 
 \section{Magnetic Translation Operators}
-In absence of magnetic field, the set of lattice translation operators form an abelian group and they commute with the translationally invariant hamiltonian. This implies that the translation operators 
-and the hamiltonian can be simultaneously diagonalized.
+In absence of magnetic field, the set of lattice translation operators form an abelian group and they commute with the translationally invariant Hamiltonian. This implies that the translation operators 
+and the Hamiltonian can be simultaneously diagonalized.
 \begin{gather}
 \hat{H}(\mathbf{r}) = \hat{H}(\mathbf{r} + \mathbf{R}) \nonumber \\
  \hat{T}_{\mathbf{R}}\ket{\psi(\mathbf{r})} = \ket{\psi(\mathbf{r} + \mathbf{R})} \\
@@ -42,14 +42,14 @@ and the hamiltonian can be simultaneously diagonalized.
  \ket{\psi_{\mathbf{k}}(\mathbf{r})} = e^{i\mathbf{k}\cdot\mathbf{r}}\ket{u_{\mathbf{k}}(\mathbf{r})} \text{ such that } \ket{u_{\mathbf{k}}(\mathbf{r})} = \ket{u_{\mathbf{k}}(\mathbf{r} + \mathbf{R})}
 \end{gather} This is the essence of \emph{Bloch theorem}. $\mathbf{k}$ is the crystal momentum and it is confined to the limits $k_{x}, k_{y} \in [0, 2\pi/d)$.
 
-However, in the presence of uniform magnetic field, the hamiltonian is no longer translationally invariant, because $\mathbf{A}(\mathbf{r}) \neq \mathbf{A}(\mathbf{r} + \mathbf{R})$.
-Therefore, a new set of translation operators called the \emph{Magnetic translation operators} must be defined \cite{zak1964magnetic,brown1964bloch,fischbeck1970theory,bernevig2013topological,jain2007composite,kohmoto1985topological,florek1997local}, that commutes with the new hamiltonian.
+However, in the presence of uniform magnetic field, the Hamiltonian is no longer translationally invariant, because $\mathbf{A}(\mathbf{r}) \neq \mathbf{A}(\mathbf{r} + \mathbf{R})$.
+Therefore, a new set of translation operators called the \emph{Magnetic translation operators} must be defined \cite{zak1964magnetic,brown1964bloch,fischbeck1970theory,bernevig2013topological,jain2007composite,kohmoto1985topological,florek1997local}, that commutes with the new Hamiltonian.
 
 As demonstrated in \cite{jain2007composite,kohmoto1985topological}, the consequence of uniform magnetic field is that the vector potential can be expressed as
 \begin{equation*}
  \mathbf{A}(\mathbf{r} + \mathbf{R}) = \mathbf{A}(\mathbf{r}) + \bm{\nabla}\mathcal{G}(\mathbf{r}, \mathbf{R})
 \end{equation*}
-Therefore, the operation of translation operator on the hamiltonian is equivalent to a gauge transformation
+Therefore, the operation of translation operator on the Hamiltonian is equivalent to a gauge transformation
 \begin{gather}
  \hat{T}_{\mathbf{R}}\left(\frac{1}{2m}(\hat{\mathbf{p}} - e\mathbf{A}(\mathbf{r}))^2\right) = \left(\frac{1}{2m}(\hat{\mathbf{p}} - e\mathbf{A}(\mathbf{r}) - e\bm{\nabla}\mathcal{G}(\mathbf{r}, \mathbf{R}))^2\right)\hat{T}_{\mathbf{R}} \\
  \label{chap_6:magneticgaugetransform}\left(\frac{1}{2m}(\hat{\mathbf{p}} - e\mathbf{A}(\mathbf{r}) - e\bm{\nabla}\mathcal{G}(\mathbf{r}, \mathbf{R}))^2\right) = e^{\frac{ie}{\hbar}\mathcal{G}(\mathbf{r}, \mathbf{R})}\left(\frac{1}{2m}(\hat{\mathbf{p}} - e\mathbf{A}(\mathbf{r}))^2\right)e^{\frac{-ie}{\hbar}\mathcal{G}(\mathbf{r}, \mathbf{R})}
@@ -85,7 +85,7 @@ translation by magnetic unit cell $x=qd$ and $y=d$ gives
 Now we have established the required properties to write the eigenvalue equation
 \begin{equation}
  \label{chap_6:magtranseig}\hat{\mathcal{T}}_{\mathcal{R}}\ket{\psi_{\mathbf{k}}(\mathbf{r})} = e^{i\mathbf{k}\cdot\mathcal{R}}\ket{\psi_{\mathbf{k}}(\mathbf{r})}
-\end{equation} with $\mathbf{k}$ restricted to magnetic brillouin zone $k_{x} \in [0, 2\pi/qd), k_{y} \in [0, 2\pi/d)$. Inspired from bloch theory,
+\end{equation} with $\mathbf{k}$ restricted to magnetic Brillouin zone $k_{x} \in [0, 2\pi/qd), k_{y} \in [0, 2\pi/d)$. Inspired from bloch theory,
 we can write
 \begin{equation}
  \ket{\psi_{\mathbf{k}}(\mathbf{r})} = e^{i\mathbf{k}\cdot\mathbf{r}}\ket{u_{\mathbf{k}}(\mathbf{r})}
@@ -96,8 +96,8 @@ of magnetic translation operator on Eq. \eqref{chap_6:magtranseig}.
 \end{equation} This is called the \emph{Generalized bloch condition}.
 
 \section{Tight-Binding Hamiltonian}
-To write the hamiltonian under the tight-binding approximation, the wavefunction is expanded as a linear combination of a set of localized states \cite{snoke2009solid, ashcroft2010solid}.
-In the absence of magnetic field, the wavefunction is written in terms of the wannier states/single atom states as\footnote{With this method, we obtain one band structure of the hamiltonian as  we 
+To write the Hamiltonian under the tight-binding approximation, the wavefunction is expanded as a linear combination of a set of localized states \cite{snoke2009solid, ashcroft2010solid}.
+In the absence of magnetic field, the wavefunction is written in terms of the wannier states/single atom states as\footnote{With this method, we obtain one band structure of the Hamiltonian as  we 
 are accounting for contributions from a single state at each lattice site. Two band tight-binding model is described in \cite{butler1968model}}
 \begin{equation*}
  \ket{\psi(\mathbf{r})} = \sum_{\mathbf{R}}{a_{\mathbf{R}} \ket{\phi_{\mathbf{R}}(\mathbf{r})}}
@@ -133,7 +133,7 @@ only interactions between the nearest neighbors is significant in the summation 
 With these assumptions, the tight-binding equation is written as
 \begin{equation}
  W_{1,0}(a_{m+1, n} + a_{m-1, n}) + W_{0, 1}(a_{m, n+1} + a_{m, n-1}) = Ea_{m, n}
-\end{equation} In matrix form, the hamiltonian is written as
+\end{equation} In matrix form, the Hamiltonian is written as
 \begin{equation}
 \hat{H}_{0} = \sum_{m,n} W_{1,0}\ket{m+1, n}\bra{m, n} + W_{0,1}\ket{m, n+1}\bra{m, n} + h.c.
 \end{equation}
@@ -154,7 +154,7 @@ the following property holds under the approximation of slowly varying magnetic 
 \end{equation} and for slowly varying magnetic field, the hopping integrals modify as
 \begin{equation}
  \braket{\phi_{\mathbf{R}}|e^{-2\pi \frac{ie}{h}\int_{\mathbf{R}}^{\mathbf{r}}{\mathbf{A}\cdot d\mathbf{r}'}}\hat{H}e^{2\pi \frac{ie}{h}\int_{\mathbf{R}'}^{\mathbf{r}}{\mathbf{A}\cdot d\mathbf{r}'}}|\phi_{\mathbf{R}'}} = e^{2\pi \frac{ie}{h}\int_{\mathbf{R}}^{\mathbf{R}'}{\mathbf{A}\cdot d\mathbf{r}'}} \braket{\phi_{\mathbf{R}}|\hat{H}_{0}|\phi_{\mathbf{R}'}}
-\end{equation} The above result is known as \emph{Peirels substitution}. Therefore, the tight-binding hamiltonian in the presence of magnetic field is written as \cite{hofstadter1976energy,bernevig2013topological,fischbeck1970theory}
+\end{equation} The above result is known as \emph{Peirels substitution}. Therefore, the tight-binding Hamiltonian in the presence of magnetic field is written as \cite{hofstadter1976energy,bernevig2013topological,fischbeck1970theory}
 \begin{equation}
  \hat{H} = \sum_{m, n} W_{1,0}e^{2\pi \frac{ie}{h}\int_{md}^{(m+1)d}{\mathbf{A}\cdot d\mathbf{x}}}\ket{m+1, n}\bra{m, n} + W_{0,1}e^{2\pi \frac{ie}{h}\int_{nd}^{(n+1)d}{\mathbf{A}\cdot d\mathbf{y}}}\ket{m, n+1}\bra{m, n} + h.c.
 \end{equation}
@@ -194,7 +194,7 @@ The condition that the coefficients must be bounded translates to a condition on
 \begin{equation}
  |tr(\mathbf{Q}^{q})| \leq 4
 \end{equation} The trace of $\mathbf{Q}^{q}$ is q-degree polynomial known as the harper polynomial \cite{hofstadter1976energy, butler1968model,satija2016butterfly} and the energy values
-that satisfy the above equation occur in $q$ distinct energy bands. Thus, the spectrum of the hamiltonian has $q$-subbands\footnote{This is not true for even values of $q$ as the middle bands touch. This is
+that satisfy the above equation occur in $q$ distinct energy bands. Thus, the spectrum of the Hamiltonian has $q$-subbands\footnote{This is not true for even values of $q$ as the middle bands touch. This is
 described as the ``kiss'' in \parencite{hofstadter1976energy,satija2016butterfly}}. A physical explanation in terms of there being $q$ potential wells inside each magnetic unit cell is conceivable. But, a 
 rigorous mathematical explanation is far more satisfying as much of the content presented in this thesis is beyond the reach of intuition.
 
@@ -224,25 +224,25 @@ Similarly,
 \begin{equation*}
  W_{0,1} \sum_{m, n}\ket{m, n-1}\bra{m, n} e^{-i2\pi\alpha m} = \frac{W_{1,0}}{(2\pi)^2}\iint dk_{x}dk_{y} e^{-ik_y}\ket{k_x-2\pi\alpha,k_y}\bra{k_{x},k_{y}}
 \end{equation*}
-The hamiltonian in the momentum space is 
+The Hamiltonian in the momentum space is 
 \begin{equation}
  \hat{H} = \int_{-\pi}^{\pi}\int_{-\pi}^{\pi}{\frac{dk_{x}}{2\pi}\frac{dk_{y}}{2\pi} \left[ 2W_{1,0}\cos(k_{x}) \ket{k_x,k_y}\bra{k_{x},k_{y}} + W_{1,0}e^{ik_y}\ket{k_x+2\pi\alpha,k_y}\bra{k_{x},k_{y}} + h.c.\right]}
-\end{equation} The hamiltonian has hopping terms mixing $(k_x, k_y)$ with $(k_x + 2\pi\alpha, k_y)$. We can sector the brillouin zone into $q$ zones of $2\pi/q$ size each. This partitioning is
-guided by our insight that two wavevectors in the same sector do not mix with each other. This enables us to write the hamiltonian as \cite{bernevig2013topological}
+\end{equation} The Hamiltonian has hopping terms mixing $(k_x, k_y)$ with $(k_x + 2\pi\alpha, k_y)$. We can sector the Brillouin zone into $q$ zones of $2\pi/q$ size each. This partitioning is
+guided by our insight that two wavevectors in the same sector do not mix with each other. This enables us to write the Hamiltonian as \cite{bernevig2013topological}
 \begin{align}
  H &= \frac{1}{(2\pi)^2}\int_{\frac{-\pi}{q}}^{\frac{\pi}{q}}\int_{-\pi}^{\pi}{dk_{x}^{0}dk_{y} \hat{H}_{k_x^0,k_y}} \\
  \hat{H}_{k_x^0,k_y} = \sum_{n=0}^{q-1} &[-2W_{1,0}\cos(k_{x}^{0} + 2\pi\alpha n)\ket{k_x^{0}+2\pi\alpha,k_y}\bra{k_x^{0}+2\pi\alpha,k_y} \nonumber \\
  &- W_{0,1}(e^{ik_y}\ket{k_x^{0}+2\pi\alpha(n+1),k_y}\bra{k_x^{0}+2\pi\alpha n,k_y} \nonumber \\
  &+ e^{-ik_y}\ket{k_x^{0}+2\pi\alpha(n-1),k_y}\bra{k_x^{0}+2\pi\alpha n,k_y})] 
-\end{align} Our new momentum variable $k_{x}^0$ lies in the magnetic brillouin zone $[-\pi/q, \pi/q]$.
+\end{align} Our new momentum variable $k_{x}^0$ lies in the magnetic Brillouin zone $[-\pi/q, \pi/q]$.
 
-We shall expand the q-site hamiltonian $\hat{H}_{k_x^0, k_y}$ as an eigenvalue equation. With $\ket{\psi} = \sum_{n=0}^{q-1}{a_n \ket{k_{x}^0 + 2\pi\alpha n, k_y}}$, the 
+We shall expand the q-site Hamiltonian $\hat{H}_{k_x^0, k_y}$ as an eigenvalue equation. With $\ket{\psi} = \sum_{n=0}^{q-1}{a_n \ket{k_{x}^0 + 2\pi\alpha n, k_y}}$, the 
 eigenvalue equation is
 \begin{equation}
 2W_{1,0} \cos(k_{x}^0 + 2\pi\alpha n) a_{n} + W_{0,1} (e^{ik_y} a_{n+1} + e^{-ik_y} a_{n-1}) = E_{k_{x}^0, k_y} a_n
 \end{equation} with the periodicity condition $a_{n} = a_{n+q}$.
-However, the hamiltonian written in this form is not periodic in $k_x^0 , k_y$. We seek this property as it is necessary when calculating topological invariants - called
-chern numbers - intimately related to the concept of geometric phase. We make use of a linear transformation, known as the duality transformation \cite{aubry1980analyticity} to obtain such a hamiltonian
+However, the Hamiltonian written in this form is not periodic in $k_x^0 , k_y$. We seek this property as it is necessary when calculating topological invariants - called
+chern numbers - intimately related to the concept of geometric phase. We make use of a linear transformation, known as the duality transformation \cite{aubry1980analyticity} to obtain such a Hamiltonian
 \begin{equation}
  a_{n} = \sum_{m=1}^{q} e^{i2\pi\alpha mn} x_{m}
 \end{equation} In terms of $x_{m}$ we obtain
@@ -260,11 +260,11 @@ The requirement that $x_{m+q} = x_{m}$ translates to
  e^{-ik_{x}^0 (m+q)} b_{m+q} &= e^{-ik_{x}^0 m} b_{m} \nonumber \\
  b_{m+q} &= e^{ik_{x}^0 q} b_{m}
 \end{align}
-The above hamiltonian written in matrix form is
+The above Hamiltonian written in matrix form is
 \begin{equation}
 H_{ij} = 2W_{1,0} \cos(k_y + 2\pi\alpha m) \delta{ij} + W_{0,1} (\delta_{i+1, j} + \delta_{i, j+1}) + W_{0,1}\delta_{i,q}\delta_{j,1} e^{ik_{x}^0 q} + W_{0,1}\delta_{i,1}\delta_{j,q} e^{-ik_{x}^0 q}
 \end{equation}
-In the above form the hamiltonian satisfies
+In the above form the Hamiltonian satisfies
 \begin{align}
  \hat{H}(k_{x}^0, k_y) &= \hat{H}(k_{x}^0 + 2\pi/q, k_y) \\
  \hat{H}(k_{x}^0, k_y) &= \hat{H}(k_{x}^0, k_y+2\pi)
@@ -313,7 +313,7 @@ AAH model has a duality transformation of the form \cite{aubry1980analyticity,au
 \begin{equation}
  \ket{m} = \frac{1}{\sqrt{L}}\sum_{n}e^{-i2\pi\alpha_0 m n} \ket{n}
 \end{equation} The effect of this transformation is to switch to a momentum space like representation. Wavefunctions localized in real space is delocalized in the dual space and vice versa.
-AAH model is an exactly self-dual model i.e., the hamiltonian retains its tri-diagonal form under the duality transformation, and the IPR plot in the dual space is an
+AAH model is an exactly self-dual model i.e., the Hamiltonian retains its tri-diagonal form under the duality transformation, and the IPR plot in the dual space is an
 exact mirror image of the IPR plot in the real space.
 We also seek a relationship between IPR and $L$ of the form $IPR \propto L^{-D_2}$. The sharp transition of $D_2$ to 0 at $V_0 = 2$ indicates that this metal-insulator transition
 is independent of length and true even under the limit of $L \rightarrow \infty$.
@@ -324,7 +324,7 @@ We shall use the IPR measure to evaluate the metal insulator phase transitions i
 As already mentioned in Chapter \ref{ch:qhe}, the Hall conductivity is a topological invariant. In fact, the harper model was  the first problem for which this result was established \cite{thouless1982quantized}. An interesting
 discussion on chern numbers and their physical interpretation as applied to this problem can be found in \parencite{wen1989winding}. Another statement that chern numbers 
 are the only topological invariants associated with energy bands is also shown using topological arguments \cite{avron1983homotopy}.
-Hall conductivity can be calculated both numerically - using the berry connection, and analytically - using the Streda formula.
+Hall conductivity can be calculated both numerically - using the Berry connection, and analytically - using the Streda formula.
 
 Conductivity represents a linear relationship between the current density and the electric field. This is written as
 \begin{equation}
@@ -379,7 +379,7 @@ for the $r$th gap.
  \begin{equation*}
   F[i,j] = U_{x}[i,j]U_{y}[(i+1)mod\,N_{x},j]U_{x}^{*}[(i+1)mod\,N_{x},(j+1)mod\,N_{y}]U_{y}^{*}[i,(j+1)mod\,N_{y}]
  \end{equation*}
- \item The chern number is then calculated by summing up the berry curvature values $C = \frac{1}{2\pi i}\sum_{i,j}F[i,j]$. 
+ \item The chern number is then calculated by summing up the Berry curvature values $C = \frac{1}{2\pi i}\sum_{i,j}F[i,j]$. 
 \end{enumerate}
 The chern numbers for the Harper-Hofstadter problem were successfully calculated using this method. Both methods, of course give the same results!
 

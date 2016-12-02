@@ -1,0 +1,43 @@
+% Author	Rajath Shashidhara
+% Email		rajath.shashidhara@gmail.com
+%
+% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+\chapter{Useful Trignometric results} \label{app:trig}
+A list of formulas or series expansions that were used in deriving some results obtained in this thesis is given below.
+These formulas were obtained from \parencite{abramowitz2012handbook}.
+\begin{align}
+  e^{i\theta} &= \cos(\theta) + i\sin(\theta) \\
+  \cos(A + B) &= \cos(A) \cos(B) - \sin(A)\sin(B) \\
+  \sin(A + B) &= \sin(A) \cos(B) + \cos(A)\sin(B) \\
+  \cos(r\sin(\theta)) &= \mathcal{J}_{0}(r) + 2\sum_{k=1}^{\infty}\mathcal{J}_{2k}(r) \cos(2k\theta) \\
+  \sin(r\sin(\theta)) &= 2\sum_{k=1}^{\infty}\mathcal{J}_{2k-1}(r) \sin((2k-1)\theta) \\
+  \cos(r\cos(\theta)) &= \mathcal{J}_{0}(r) + 2\sum_{k=1}^{\infty}(-1)^{k}\mathcal{J}_{2k}(r) \cos(2k\theta) \\
+  \sin(r\sin(\theta)) &= 2\sum_{k=1}^{\infty}(-1)^{k-1}\mathcal{J}_{2k-1}(r) \sin((2k-1)\theta)
+\end{align}
+$\mathcal{J}_{i}(r)$ is Bessel function of the first kind of order $i$.
+% 
+% \begin{enumerate}
+%  \item \begin{equation}
+%         e^{i\theta} = \cos(\theta) + i\sin(\theta)
+%        \end{equation}
+%  \item \begin{equation}
+%         \cos(A + B) = \cos(A) \cos(B) - \sin(A)\sin(B)
+%        \end{equation}
+%  \item \begin{equation}
+%         \sin(A + B) = \sin(A) \cos(B) + \cos(A)\sin(B)
+%        \end{equation}
+%  \item \begin{equation}
+%         \cos(r\sin(\theta)) = \mathcal{J}_{0}(r) + 2\sum_{k=1}^{\infty}\mathcal{J}_{2k}(r) \cos(2k\theta)
+%        \end{equation}
+%  \item \begin{equation}
+%         \sin(r\sin(\theta)) = 2\sum_{k=1}^{\infty}\mathcal{J}_{2k-1}(r) \sin((2k-1)\theta)
+%        \end{equation}
+%  \item \begin{equation}
+%         \cos(r\cos(\theta)) = \mathcal{J}_{0}(r) + 2\sum_{k=1}^{\infty}(-1)^{k}\mathcal{J}_{2k}(r) \cos(2k\theta)
+%        \end{equation}
+%  \item \begin{equation}
+%         \sin(r\sin(\theta)) = 2\sum_{k=1}^{\infty}(-1)^{k-1}\mathcal{J}_{2k-1}(r) \sin((2k-1)\theta)
+%        \end{equation}
+% \end{enumerate}

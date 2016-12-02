@@ -8,12 +8,24 @@ using the peturbative expansion
  \Omega_{BW} = \sum_{N=0}^{\infty}\Omega_{BW}^{(N)}
 \end{equation} corresponding to orders of $1/\omega^N$.
 
-Recursively expanding the Eq. \eqref{app:eq-bw1},
+Substituting the ansatz in Eq. \eqref{app:eq-bw1},
 \begin{equation}
   \begin{split}
-   \Omega = \mathcal{P} + \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}
+    \sum_{N=0}^{\infty}\Omega_{BW}^{(N)} = \mathcal{P} + \sum_{N=0}^{\infty}\frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega_{BW}^{(N)}
+    + \sum_{N=0}^{\infty}\sum_{M=0}^{\infty}\frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega_{BW}^{(N)}\mathcal{P}\mathcal{H}\Omega_{BW}^{(M)}
   \end{split}
- \Omega = \mathcal{P} + \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega - \frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega\mathcal{P}\mathcal{H}\Omega
 \end{equation}
+Equating terms from both sides of the same order $\mathcal{O}(1/\omega^N)$
+\begin{gather}
+ \Omega_{BW}^{(0)} = \mathcal{P} \\
+ \Omega_{BW}^{(1)} = \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\mathcal{P} \\
+ \Omega_{BW}^{(N+1)} = \frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\Omega_{BW}^{(N)} - \sum_{M=0}^{N}\frac{\mathcal{Q}}{\mathcal{M}\omega}\Omega_{BW}^{(M)}\mathcal{P}\mathcal{H}\Omega_{BW}^{(N-M)}
+\end{gather}
 
-
+Using $H_{BW} = \mathcal{P}\mathcal{H}\Omega_{BW}\mathcal{P}$, we obtain
+\begin{gather}
+ H_{BW}^{(0)} = \mathcal{P}\mathcal{H}\mathcal{P}\mathcal{P} = H_{0,0} \\
+ H_{BW}^{(1)} = \mathcal{P}\mathcal{H}\frac{\mathcal{Q}}{\mathcal{M}\omega}\mathcal{H}\mathcal{P}\mathcal{P} = \sum_{n \neq 0} \frac{H_{0,n}H_{n,0}}{n\omega} \\
+ H_{BW}^{(2)} = \mathcal{P}\mathcal{H}\Omega_{BW}^{(2)}\mathcal{P} = \sum_{n_1 \neq 0, n_2 \neq 0, n_1\neq n_2} \frac{H_{0,n_1}H_{n_1,n_2}H_{n_2,0}}{n_1 n_2 \omega} \\
+ H_{BW}^{(N)} = \mathcal{P}\mathcal{H}\Omega_{BW}^{(N)}\mathcal{P}
+\end{gather}

@@ -7,7 +7,7 @@
 \chapter{Brillouin-Wigner Perturbation Theory} \label{ch:bw}
 When encountered with an analytically intractable quantum mechanical problem, perturbation techniques 
 may be used to obtain approximate solutions. Formally, the problem can be stated as follows : 
-Given a hamiltonian $\hat{H} = \hat{H}_{0} + \hat{V}$ where $\hat{H}_{0}$ is exactly solvable and 
+Given a Hamiltonian $\hat{H} = \hat{H}_{0} + \hat{V}$ where $\hat{H}_{0}$ is exactly solvable and 
 $\hat{V}$ is the perturbation term, and the eigendecomposition of $\hat{H}_{0}\quad$ \textemdash 
 \begin{gather*}
   \hat{H}_{0}\ket{n} = \epsilon_{n}\ket{n} \\
@@ -76,9 +76,9 @@ equations is usually tricky as compared to the simple perturbation terms obtaine
 
 \section{Effective Hamiltonian}
 Recent efforts to extend the theory to many-body systems has led to systematization of BW theory in 
-terms of model space and effective hamiltonian formalism. This new representation requires the
+terms of model space and effective Hamiltonian formalism. This new representation requires the
 introduction of a model space with respect to a set of reference states. Any complete set of orthonormal states of the hilbert space 
-is chosen as a set of reference states. Usually, the set of eigenstates of the unperturbed hamiltonian $\hat{H}_{0}$ is chosen as a set of 
+is chosen as a set of reference states. Usually, the set of eigenstates of the unperturbed Hamiltonian $\hat{H}_{0}$ is chosen as a set of 
 reference states. The hilbert space is partitioned into model space and orthogonal space, by choosing one state from the set of
 reference states as the model state \footnote{In this treatment, a single reference state is chosen as the model function. See 
 \cite{wilson2009brillouin} for multi-reference partitioning.}.
@@ -112,9 +112,9 @@ $\hat{H}_{eff}\ket{\phi} = E\ket{\phi}$, where
  &= E\ket{\phi}
 \end{align*}
 
-Therefore, the eigenvalues of the effective hamiltonian are equal to the eigenvalues of the original hamiltonian and the 
-eigenfunctions of the original hamiltonian can be obtained by application of the wave operator $\Omega$ on the eigenfunctions of
-the effective hamiltonian $\ket{\psi} = \Omega\ket{\phi}$.
+Therefore, the eigenvalues of the effective Hamiltonian are equal to the eigenvalues of the original Hamiltonian and the 
+eigenfunctions of the original Hamiltonian can be obtained by application of the wave operator $\Omega$ on the eigenfunctions of
+the effective Hamiltonian $\ket{\psi} = \Omega\ket{\phi}$.
 
 How do we obtain the wave operator $\Omega$ ? Operating $Q$ on the eigenvalue equation,
 \begin{align*}
@@ -135,7 +135,7 @@ $P = \ket{n}\bra{n}$. From Eq. \eqref{chap_4:waveop},
 \end{equation}
 The inverse operation in the wave operator can be expanded to obtain the perturbative expansion.
 
-Usually, the effective hamiltonian is parameterized by energy. To obtain the solutions, we must diagonalize the effective hamiltonian by treating $E$ as a free parameter to
+Usually, the effective Hamiltonian is parameterized by energy. To obtain the solutions, we must diagonalize the effective Hamiltonian by treating $E$ as a free parameter to
 obtain the eigenvalue expressions $E_{i} (i=1\dots \dim(H))$, and solve the equations $E = E_{i}$ to obtain the numerical values of energy eigenvalues.
 
 Above discussion is an abridged version of the theory of BW perturbation presented in \parencite{wilson2009brillouin}.
