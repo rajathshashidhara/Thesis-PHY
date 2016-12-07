@@ -262,7 +262,7 @@ The requirement that $x_{m+q} = x_{m}$ translates to
 \end{align}
 The above Hamiltonian written in matrix form is
 \begin{equation}
-H_{ij} = 2W_{1,0} \cos(k_y + 2\pi\alpha m) \delta{ij} + W_{0,1} (\delta_{i+1, j} + \delta_{i, j+1}) + W_{0,1}\delta_{i,q}\delta_{j,1} e^{ik_{x}^0 q} + W_{0,1}\delta_{i,1}\delta_{j,q} e^{-ik_{x}^0 q}
+H_{ij} = 2W_{1,0} \cos(k_y + 2\pi\alpha m) \delta_{ij} + W_{0,1} (\delta_{i+1, j} + \delta_{i, j+1}) + W_{0,1}\delta_{i,q}\delta_{j,1} e^{ik_{x}^0 q} + W_{0,1}\delta_{i,1}\delta_{j,q} e^{-ik_{x}^0 q}
 \end{equation}
 In the above form the Hamiltonian satisfies
 \begin{align}
@@ -293,10 +293,10 @@ displayed by the plot are \cite{hofstadter1976energy,satija2016butterfly,azbel19
 The Aubry-Andre model exhibits a phase transition from localized to delocalized behaviour at $\lambda = 2$ for Diophantine irrational numbers \cite{aulbach2004phase,aubry1980analyticity,jitomirskaya1999metal}. Localization means that the wavefunctions are concentrated at
 certain lattice sites. Delocalized wavefunctions are roughly uniformly distributed at all lattice sites. Localized wavefunctions have insulator like properties with no effective
 contribution to transport of charge, whereas the delocalized wavefunctions contribute to metallic behaviour. The quantitative measure of localization is called as the Inverse Participation Ratio (IPR).
-It is defined as 
+It is defined as
 \begin{equation}
  IPR = \frac{\sum_{n=1}^{L} |a_{n}|^4} {(\sum_{n=1}^{L} |a_{n}|^2)^2}
-\end{equation} where an are the expansion coefficients of the energy eigenstates in a local discrete-site basis and L is the number of lattice sites \cite{mishra2016phase, aulbach2004phase, aubry1980analyticity}.
+\end{equation} where $a_n$ are the expansion coefficients of the energy eigenstates in a local discrete-site basis and L is the number of lattice sites \cite{mishra2016phase, aulbach2004phase, aubry1980analyticity}.
 IPR lies in the range $1$ to $1/L$, where $1$ indicates a perfectly localized state and $1/L$ indicates a perfectly delocalized state.
 
 \begin{figure}[h]
